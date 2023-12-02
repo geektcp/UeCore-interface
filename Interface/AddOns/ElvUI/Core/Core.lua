@@ -1305,9 +1305,9 @@ function E:Initialize()
 	end
 
 	if self.db.general.loginmessage then
-		local msg = format(L["LOGIN_MSG"], self.media.hexvaluecolor, self.media.hexvaluecolor, self.version)
-		if Chat.Initialized then msg = select(2, Chat:FindURL("CHAT_MSG_DUMMY", msg)) end
-		print(msg)
+		--local msg = format(L["LOGIN_MSG"], self.media.hexvaluecolor, self.media.hexvaluecolor, self.version)
+		--if Chat.Initialized then msg = select(2, Chat:FindURL("CHAT_MSG_DUMMY", msg)) end
+		--print(msg)
 	end
 
 	if GetCVar("scriptProfile") ~= "1" then
