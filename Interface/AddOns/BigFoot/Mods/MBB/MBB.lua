@@ -459,7 +459,7 @@ function M:OnInitialize()
 
 	local AceConfig = LibStub("AceConfig-3.0")
 	
-	createIcon()
+	--createIcon()
 	self.icon =self.icon or LDB and LibStub("LibDBIcon-1.0", true)
 	self.icon:Register("MBB", launcher, self.db.profile.MiniMap)
 	self:SetupOptions()

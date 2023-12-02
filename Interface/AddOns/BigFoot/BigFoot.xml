@@ -13,24 +13,24 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		</Scripts>
 	</Frame>
 
-	<Button name="BigFootMenuButtonOptions" inherits="GameMenuButtonTemplate" parent="GameMenuFrame">
-		<Anchors>
-			<Anchor point="CENTER" relativePoint="TOP">
-				<Offset>
-					<AbsDimension x="0" y="-37"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Scripts>
-			<OnShow>
-				self:SetText(BF_NAME);
-			</OnShow>
-			<OnClick>
-				PlaySound("igMainMenuOption");
-				ShowUIPanel(ModManagementFrame);
-			</OnClick>
-		</Scripts>
-	</Button>
+	<!--<Button name="BigFootMenuButtonOptions" inherits="GameMenuButtonTemplate" parent="GameMenuFrame">-->
+		<!--<Anchors>-->
+			<!--<Anchor point="CENTER" relativePoint="TOP">-->
+				<!--<Offset>-->
+					<!--<AbsDimension x="0" y="-37"/>-->
+				<!--</Offset>-->
+			<!--</Anchor>-->
+		<!--</Anchors>-->
+		<!--<Scripts>-->
+			<!--<OnShow>-->
+				<!--self:SetText(BF_NAME);-->
+			<!--</OnShow>-->
+			<!--<OnClick>-->
+				<!--PlaySound("igMainMenuOption");-->
+				<!--ShowUIPanel(ModManagementFrame);-->
+			<!--</OnClick>-->
+		<!--</Scripts>-->
+	<!--</Button>-->
 
 	<Frame name="BigFootFrame" parent="UIParent" hidden="false">
 		<Size>
