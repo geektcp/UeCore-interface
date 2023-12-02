@@ -1,0 +1,139 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="Widgets.lua"/>
+	<GameTooltip name="BigFootTooltip" frameStrata="TOOLTIP" hidden="true" inherits="GameTooltipTemplate">
+		<Scripts>
+			<OnLoad>
+				self:SetOwner(UIParent, "ANCHOR_NONE");
+			</OnLoad>
+		</Scripts>
+	</GameTooltip>
+	<Frame name="BigFootURLFrame" toplevel="true" frameStrata="HIGH" parent="UIParent" enableMouse="true" hidden="true">
+		<Size>
+			<AbsDimension x="400" y="150"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOP" relativeTo="UIParent" realtivePoint="TOP">
+				<Offset>
+					<AbsDimension x="0" y="-100"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" inherits="GameFontHighlight">
+					<Size>
+						<AbsDimension x="290" y="0"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-16"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentText" inherits="GameFontNormal" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="300" y="0"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="BigFootURLFrame" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="80" y="-40"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<Texture name="$parentAlertIcon" file="Interface\DialogFrame\DialogAlertIcon">
+					<Size>
+						<AbsDimension x="64" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="12" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-3" y="-3"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						self:GetParent():Hide();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<EditBox name="$parentURL" multiLine="true" letters="65535" autoFocus="true">
+				<Size>
+					<AbsDimension x="450" y="1"/>
+				</Size>
+				<Scripts>
+					<OnTextChanged>
+						BigFootURLFrameURL:SetText(self.url);
+						BigFootURLFrameURL:HighlightText();
+					</OnTextChanged>
+					<OnEscapePressed>
+						BigFootURLFrame:Hide();
+					</OnEscapePressed>
+					<OnCursorChanged>
+						BigFootURLFrameURL:HighlightText();
+					</OnCursorChanged>
+					<OnEditFocusLost>
+						BigFootURLFrame:Hide();
+					</OnEditFocusLost>
+				</Scripts>
+				<FontString inherits="GameFontHighlightSmall"/>
+			</EditBox>
+		</Frames>
+	</Frame>
+	<Frame name ="BigFootPanel" frameStrata="DIALOG" toplevel="true" enableMouse="true" hidden="true" parent="UIParent">
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Size>
+			<AbsDimension x="400" y="150"/>
+		</Size>
+		<Layers>
+			<Layer level="ARTWORK">
+			</Layer>
+			<Layer level="OVERLAY">
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+			</OnLoad>
+			<OnShow>
+			</OnShow>
+		</Scripts>
+	</Frame>
+</Ui>
