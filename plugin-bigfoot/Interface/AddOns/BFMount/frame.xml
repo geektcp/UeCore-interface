@@ -1,0 +1,309 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="BFMData.lua"/>
+
+	<Script file="BFmount.lua"/>
+	<CheckButton name="BFMountButtonTemplate" inherits="SecureFrameTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="37" y="37"/>
+		</Size>
+		
+		<Frames>
+			<Cooldown name="$parentCooldown" inherits="CooldownFrameTemplate"/>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				CompanionButton_OnLoad(self);
+			</OnLoad>
+	
+			<OnClick>
+				if ( IsModifiedClick() ) then
+					CompanionButton_OnModifiedClick(self, button);
+				else
+					BFMount_MountButtonOnClick(self, button);
+				end
+				PlaySound("igMainMenuOptionCheckBoxOn");
+			</OnClick>
+			<OnEnter>
+				CompanionButton_OnEnter(self, motion);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<DisabledTexture file="Interface\PetPaperDollFrame\UI-PetFrame-Slots-Mounts">
+			<TexCoords left="0.203125" right="0.765625" top="0.203125" bottom="0.7625625"/>
+		</DisabledTexture>
+		<HighlightTexture name="$parentHighlight" file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+		<CheckedTexture file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD"/>
+	</CheckButton>
+		
+	
+	<CheckButton name="BFMountFrameTabTemplate" virtual="true" >
+		<Size x="32" y="32"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBackground" file="Interface\SpellBook\SpellBook-SkillLineTab">
+					<Size x="64" y="64"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="-3" y="11"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnClick>
+				BFMount_MountTabOnClick(self,self.tabindex)
+			</OnClick>
+			<OnEnter>
+				BFMount_TabOnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<NormalTexture/>
+		<HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+		<CheckedTexture file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD"/>
+	</CheckButton>
+	
+	<Frame name="BFMountFrame" inherits="UIPanelDialogTemplate" toplevel="true" movable="true" parent="PetPaperDollFrame"  hidden="true">
+        <Size x="287" y="435"/>
+        <Anchors>
+			<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+				<Offset x="-38" y="-10"/>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString justifyH="RIGHT" inherits="NumberFont_Shadow_Small" text="BFM_AD_TEXT">
+					<Color r="0.8" g="0.8" b="0.8" a="0.8"/>
+					<Size>
+						<AbsDimension x="250" y="36"/>
+					</Size>
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="-15" y="6"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="$parentTab1" inherits="BFMountFrameTabTemplate"  id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-5" y="-35"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture	file="Interface\Icons\ability_mount_charger"/>
+				<Scripts>
+					<OnLoad>
+						self.tabindex=1
+					</OnLoad>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="$parentTab2" inherits="BFMountFrameTabTemplate"   id="2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture	file="Interface\Icons\ability_mount_raptor"/>
+				<Scripts>
+					<OnLoad>
+						self.tabindex=2
+					</OnLoad>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="$parentTab3" inherits="BFMountFrameTabTemplate"  id="3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab2" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture	file="Interface\Icons\ability_mount_spectraltiger"/>
+				<Scripts>
+					<OnLoad>
+						self.tabindex=3
+					</OnLoad>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="$parentTab4" inherits="BFMountFrameTabTemplate"   id="4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab3" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture	file="Interface\Icons\ability_mount_snowygryphon"/>
+				<Scripts>
+					<OnLoad>
+						self.tabindex=4
+					</OnLoad>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="$parentTab5" inherits="BFMountFrameTabTemplate"  id="5">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab4" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+					<NormalTexture	file="Interface\Icons\ability_mount_netherdrakepurple"/>
+				<Scripts>
+					<OnLoad>
+						self.tabindex=5
+					</OnLoad>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="$parentTab6" inherits="BFMountFrameTabTemplate"  id="6">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab5" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+					<NormalTexture	file="Interface\Icons\ability_mount_razorscale"/>
+				<Scripts>
+					<OnLoad>
+						self.tabindex=6
+					</OnLoad>
+				</Scripts>
+			</CheckButton>
+			
+		
+			
+			<ScrollFrame name="$parentScrollFrame" inherits="FauxScrollFrameTemplate">
+				<Size>
+					<AbsDimension x="247" y="290"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-32" y="-35"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnVerticalScroll>
+						FauxScrollFrame_OnVerticalScroll(self, offset, 20, BFMount_ScrollUpdate);
+					</OnVerticalScroll>
+				</Scripts>
+			</ScrollFrame>
+
+			
+		
+			<Button name="$parentSaveList" inherits="UIPanelButtonTemplate">
+				<Size x="125" y="25"/>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT">
+						<Offset x="-20" y="75"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick function="BFMount_GenerateMountButtonOnClick"/>
+				</Scripts>
+			</Button>
+			<Button name="$parentSelectAll" inherits="UIPanelButtonTemplate">
+				<Size x="110" y="25"/>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT">
+						<Offset x="20" y="40"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick function="BFMount_SelectAllOnClick"/>
+				</Scripts>
+			</Button>
+			<Button name="$parentSelectNone" inherits="UIPanelButtonTemplate">
+				<Size x="110" y="25"/>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT">
+						<Offset x="20" y="75"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick function="BFMount_SelectNoneOnClick"/>
+				</Scripts>
+			</Button>
+			
+		</Frames>
+        <Scripts>
+
+        </Scripts>
+    </Frame>
+		
+	<Button name="BFMountFrameCallOutButton" parent= "PetPaperDollFrameCompanionFrame" inherits="GameMenuButtonTemplate" hidden="true">
+			<Size>
+				<AbsDimension x="80" y="25"/>
+			</Size>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetParent():GetFrameLevel()+1) 
+			</OnLoad>
+			<OnClick function="BFMount_ShowMountPanelOnClick"/>
+			<OnEnter>
+			</OnEnter>
+			<OnLeave>
+			</OnLeave>
+		</Scripts>
+	</Button>
+	
+	<Button name="BFMountMacroButton" toplevel="true" parent="UIParent" hidden ="true">
+		<Size>
+			<AbsDimension x="37" y="37"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UIParent" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="0" y="-150"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentIconTexture" setAllPoints="true" hidden="false"/>
+			</Layer>
+			
+			<Layer level="OVERLAY">
+				<Texture name="$parentFlash" file="Interface\Buttons\CheckButtonGlow" alphaMode="ADD" hidden="true">
+					<Size>
+						<AbsDimension x="64" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:Disable()
+			</OnLoad>
+			<OnClick>
+				BFMount_MountButtonOnDrag(self, button, 1);
+			</OnClick>
+			<OnDragStart>
+				BFMount_MountButtonOnDrag(self, button, 1);
+			</OnDragStart>
+        </Scripts>
+	</Button>
+	
+</Ui>

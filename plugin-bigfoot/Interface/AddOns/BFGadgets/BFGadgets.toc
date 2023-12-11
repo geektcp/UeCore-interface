@@ -1,0 +1,16 @@
+## Interface: 30300
+## Title: [BF] BFGadgets
+## Title-zhCN: [KK魔兽]小工具
+## Title-zhTW: [大腳]小工具
+## Notes: |cffbc8f8fProvides some extra gadgets to help user, such as coord, etc.|r
+## Notes-zhCN: |cff00ff00BFGadgets|r                                             |cffbc8f8f提供一些额外的小工具以方便用户，例如坐标等。|r
+## Notes-zhTW: |cff00ff00BFGadgets|r                                             |cffbc8f8f提供一些額外的小工具以方便使用者，例如座標等。|r
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+locale\enUS.lua
+locale\zhCN.lua
+locale\zhTW.lua
+
+frame.xml

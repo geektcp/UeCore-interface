@@ -1,0 +1,15 @@
+﻿## Interface: 30300
+## Title: [BF]BFCastingBar
+## Title-zhCN: [KK魔兽]施法条增强
+## Title-zhTW: [大腳]施法條增強
+## Notes: |cffbc8f8fEnhance the default casting bar.|r
+## Notes-zhCN: |cff00ff00BFCastingBar|r                                             |cffbc8f8f增强施法条，显示施法时间，延迟以及技能名称。|r 
+## Notes-zhTW: |cff00ff00BFCastingBar|r                                             |cffbc8f8f增強施法條，顯示施法時間，延遲以及技能名稱。|r 
+
+## Author: Terry
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+## SavedVariable:BFCBConfig
+
+BFCastingBar.lua

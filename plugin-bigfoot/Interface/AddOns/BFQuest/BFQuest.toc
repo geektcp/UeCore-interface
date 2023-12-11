@@ -1,0 +1,13 @@
+## Interface: 30300
+## Title: [BF] BFQuest
+## Title-zhCN: [KK魔兽]任务增强
+## Title-zhTW: [大腳]任務增強
+## Notes: |cffbc8f8fProvide quest-related enhancements.|r
+## Notes-zhCN: |cff00ff00BFQuest|r                                             |cffbc8f8f提供任务相关的一些增强。|r
+## Notes-zhTW: |cff00ff00BFQuest|r                                             |cffbc8f8f提供任務相關的一些增強。|r
+## SavedVariables: TeamNotice_Comment
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+BFQuest.lua

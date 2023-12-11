@@ -1,0 +1,15 @@
+﻿## Interface: 30300
+## Title: Bagnon Forever
+## Title-zhCN: [KK魔兽][集]背包信息
+## Title-zhTW: [大腳][集]背包信息
+## Notes: |cffbc8f8fStores inventory information about your characters.|r
+## Notes-zhCN: |cff00ff00Bagnon_Forever|r                                             |cffbc8f8f保存角色背包与银行内物品的信息。|r
+## Notes-zhTW: |cff00ff00Bagnon_Forever|r                                             |cffbc8f8f儲存角色背包和銀行內物品的資訊。|r
+## Author: Tuller
+## Version: 1.1.1
+## SavedVariables: BagnonForeverDB
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+
+db.lua
+ui.xml

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
+    <AddOn name="副本boss掉落物品查询AtlasLoot" displayName="副本boss掉落物品查询AtlasLoot" img="/data/wow/42/ui_logo.jpg" info="ui/42" package="down/42/928/AtlasLoot-v5.11_.04_.zip" update="2010-08-16" version="5.11.04" />
+</AddOnList>
