@@ -1,0 +1,30 @@
+﻿## Interface: 30300
+## Title: Pally Power
+## Title-zhCN: [KK魔兽][集]祝福管理
+## Title-zhTW: [大腳][集]祝福管理
+## Notes: |cffbc8f8fRaid/Party Paladin buffs.|r
+## Notes-zhCN: |cff00ff00PallyPower|r                                             |cffbc8f8f为团队提供圣骑士祝福管理功能。|r
+## Notes-zhTW: |cff00ff00PallyPower|r                                             |cffbc8f8f為團隊提供聖騎士祝福管理功能。|r
+## Author: Aznamir
+## Version: b3.2.3 
+## DefaultState: enabled
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## OptionalDeps: Ace2, RosterLib, DewdropLib
+## X-Category: Paladin
+## X-Embeds: Ace2, RosterLib, DewdropLib
+## X-RelSite-Curse: 3738
+## SavedVariables: PallyPowerDB, PallyPower_Assignments, PallyPower_NormalAssignments, PallyPower_AuraAssignments, PallyPower_SavedPresets
+## X-Curse-Packaged-Version: b3.2.3
+## X-Curse-Project-Name: PallyPower
+## X-Curse-Project-ID: pally-power
+## X-Curse-Repository-ID: wow/pally-power/mainline
+
+locale\enUS.lua
+locale\zhCN.lua
+locale\zhTW.lua
+
+PallyPower.lua
+PallyPowerValues.lua
+PallyPowerOptions.lua
+PallyPower.xml

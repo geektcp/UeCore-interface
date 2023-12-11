@@ -1,0 +1,17 @@
+<Bindings>
+  <Binding name="Set Next MT" description="Sets your target or mouseover as a main tank in the next free slot." header="oRA2MT">
+    if oRA:HasModule("LeaderMT") then oRA:GetModule("LeaderMT"):SetNextMainTank() end
+  </Binding>
+  <Binding name="Clear Last MT" description="Clears the highest used main tank slot.">
+    if oRA:HasModule("LeaderMT") then oRA:GetModule("LeaderMT"):ClearLastMainTank() end
+  </Binding>
+
+  <Binding name="Set Next PT" description="Sets your target or mouseover as a player target in the next free slot." header="oRA2PT">
+    if oRA:HasModule("OptionalPT") then oRA:GetModule("OptionalPT"):SetNextMainTank() end
+  </Binding>
+  <Binding name="Clear Last PT" description="Clears the highest used player target slot.">
+    if oRA:HasModule("OptionalPT") then oRA:GetModule("OptionalPT"):ClearLastMainTank() end
+  </Binding>
+
+</Bindings>
+

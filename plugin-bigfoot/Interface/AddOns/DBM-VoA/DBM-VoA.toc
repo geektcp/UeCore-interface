@@ -1,0 +1,30 @@
+﻿## Interface: 30300
+## X-Compatible-With: 40000 
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r Vault of Archavon
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 阿尔卡冯的宝库
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 亞夏梵穹殿
+## Notes-zhCN: |cff00ff00DBM-VoA|r
+## Notes-zhTW: |cff00ff00DBM-VoA|r
+## Author: Nitram/Tandanu
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## RequiredDeps: DBM-Core
+## SavedVariablesPerCharacter: DBMVoA_SavedVars, DBMVoA_SavedStats
+## X-DBM-Mod: 1
+## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-Has-Heroic-Mode: 0
+## X-DBM-Mod-Name: Vault of Archavon
+## X-DBM-Mod-Name-zhTW: 亞夏梵穹殿
+## X-DBM-Mod-Name-zhCN: 阿尔卡冯的宝库
+## X-DBM-Mod-Sort: 207
+## X-DBM-Mod-LoadZoneID: 533
+
+localization.en.lua
+localization.cn.lua
+localization.tw.lua
+
+MapSizes.lua
+Archavon.lua
+Emalon.lua
+Koralon.lua
+Toravon.lua

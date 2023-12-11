@@ -1,0 +1,174 @@
+------------------------------------------------------------------------
+r294 | pompachomp | 2010-03-10 20:15:13 +0000 (Wed, 10 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Clean up some of s8095324's mess.
+------------------------------------------------------------------------
+r293 | s8095324 | 2010-03-10 18:58:11 +0000 (Wed, 10 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Fix Bugs.
+------------------------------------------------------------------------
+r292 | s8095324 | 2010-03-10 18:21:55 +0000 (Wed, 10 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Update Trial of the Crusader Information
+------------------------------------------------------------------------
+r291 | s8095324 | 2010-03-10 17:53:22 +0000 (Wed, 10 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhTW.lua
+
+Add Trial of the Grand Crusader and Onyxia's Lair (Level 80)
+------------------------------------------------------------------------
+r290 | s8095324 | 2010-03-08 11:17:29 +0000 (Mon, 08 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Update Icecrown Citadel Items
+------------------------------------------------------------------------
+r289 | s8095324 | 2010-03-08 06:09:06 +0000 (Mon, 08 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Fix Bugs.
+------------------------------------------------------------------------
+r288 | s8095324 | 2010-03-08 05:50:06 +0000 (Mon, 08 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Locales update
+------------------------------------------------------------------------
+r287 | s8095324 | 2010-03-08 05:21:30 +0000 (Mon, 08 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhTW.lua
+
+Add Icecrown Citadel
+------------------------------------------------------------------------
+r286 | s8095324 | 2010-03-05 16:45:43 +0000 (Fri, 05 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+
+Locales update
+------------------------------------------------------------------------
+r285 | kemayo | 2010-02-25 18:26:14 +0000 (Thu, 25 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+TotC. Update will catch a new version of LibPT which will include assorted other instance bosses, also.
+------------------------------------------------------------------------
+r284 | pompachomp | 2010-02-25 10:05:00 +0000 (Thu, 25 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Pit of Saron Heroic should have the sets for that instance bosses.. not Heroic Azjol'Nerub's bosses
+------------------------------------------------------------------------
+r283 | mojosdojo | 2010-02-22 18:36:03 +0000 (Mon, 22 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/locales/deDE.lua
+
+deDE update.
+------------------------------------------------------------------------
+r282 | s8095324 | 2010-02-17 13:32:37 +0000 (Wed, 17 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+
+Fix Paladin's Tier 10.25 Set name
+------------------------------------------------------------------------
+r281 | s8095324 | 2010-02-14 17:25:22 +0000 (Sun, 14 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+
+Fix Paladin's Tier 10.10 Set name
+------------------------------------------------------------------------
+r280 | s8095324 | 2010-02-13 14:45:08 +0000 (Sat, 13 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+
+Fix Paladin's Tier 9.25 Set name
+------------------------------------------------------------------------
+r279 | s8095324 | 2010-02-09 15:42:17 +0000 (Tue, 09 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+
+Fix Paladin's Tier 9.10 Set name
+------------------------------------------------------------------------
+r278 | ananhaid | 2010-02-08 02:54:31 +0000 (Mon, 08 Feb 2010) | 2 lines
+Changed paths:
+   M /trunk/locales/zhCN.lua
+
+Mendeleev:
+- zhCN update.
+------------------------------------------------------------------------
+r277 | s8095324 | 2010-02-07 13:47:50 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Add The Forge of Souls,Pit of Saron and Halls of Reflection
+------------------------------------------------------------------------
+r276 | s8095324 | 2010-02-07 11:40:30 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/Sets.lua
+
+Add Emblem of Frost
+------------------------------------------------------------------------
+r275 | s8095324 | 2010-02-07 11:25:56 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+
+Add Tier 10 Set
+------------------------------------------------------------------------
+r274 | s8095324 | 2010-02-07 10:53:43 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhCN.lua
+   M /trunk/locales/zhTW.lua
+
+Add Arena - Season 7 Set and Arena - Season 8 Set
+------------------------------------------------------------------------
+r273 | s8095324 | 2010-02-07 10:41:50 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/locales/zhCN.lua
+
+zhCN update
+------------------------------------------------------------------------
+r272 | s8095324 | 2010-02-07 10:40:54 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/SetsGear.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhTW.lua
+
+Add Tier 9 Set
+------------------------------------------------------------------------
+r271 | s8095324 | 2010-02-07 10:01:20 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/Sets.lua
+   M /trunk/locales/enUS.lua
+   M /trunk/locales/zhTW.lua
+
+Add new Darkmoon Faire Card
+------------------------------------------------------------------------
+r270 | s8095324 | 2010-02-07 05:42:12 +0000 (Sun, 07 Feb 2010) | 1 line
+Changed paths:
+   M /trunk/Set_Instances_WotLK.lua
+
+Add Koralon the Flame Watcher and Toravon the Ice Watcher
+------------------------------------------------------------------------
+r269 | pompachomp | 2009-12-28 14:11:24 +0000 (Mon, 28 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/Mendeleev.toc
+
+toc to 30300
+------------------------------------------------------------------------

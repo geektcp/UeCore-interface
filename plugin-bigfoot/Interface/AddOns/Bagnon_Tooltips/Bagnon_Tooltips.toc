@@ -1,0 +1,17 @@
+﻿## Interface: 30300
+## Title: Bagnon Tooltips
+## Title-zhCN: [KK魔兽][集]背包物品提示
+## Title-zhTW: [大腳][集]背包物品提示
+## Notes: |cffbc8f8fTooltips for telling who has what.|r
+## Notes-zhCN: |cff00ff00Bagnon_Tooltips|r                                             |cffbc8f8f物品提示上显示同帐号下其他角色银行/背包内该物品情况。|r
+## Notes-zhTW: |cff00ff00Bagnon_Tooltips|r                                             |cffbc8f8f物品提示上顯示同帳號下其他角色銀行/背包内該物品情況。|r
+## Author: Tuller
+## RequiredDeps: Bagnon_Forever
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+
+localization\localization.lua
+localization\localization.tw.lua
+localization\localization.cn.lua
+
+tooltips.lua

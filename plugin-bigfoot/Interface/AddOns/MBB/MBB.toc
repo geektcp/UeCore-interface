@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: Minimap Button Bag
+## Title-zhCN: [KK魔兽][集]小地图按键包
+## Title-zhTW: [大腳][集]小地圖按鍵包
+## Notes: |cffbc8f8fReduces minimap buttons and makes them accessible through a menu.|r
+## Notes-zhCN: |cff00ff00MBB|r                                             |cffbc8f8f将小地图周围多余按键集中到菜单中。|r
+## Notes-zhTW: |cff00ff00MBB|r                                             |cffbc8f8f將小地圖周圍多餘按鍵集中到功能表中。|r
+## Author: Tunhadil, Fixed by Pericles
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+## SavedVariablesPerCharacter: MBBDB

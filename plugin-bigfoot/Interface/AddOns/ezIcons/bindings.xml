@@ -1,0 +1,11 @@
+<Bindings>
+<Binding name="EZICONS_SETICON" description="Assign mouseover target icons" header="EZICONS">
+	ezIcons:assign_();
+  </Binding>
+<Binding name="EZICONS_REMOVEICON" description="Remove icon from mouseover target">
+	ezIcons:unassign_();
+  </Binding>
+<Binding name="EZICONS_RESETICONS" description="Reset all target icons">
+    	ezIcons:reset();
+</Binding>
+</Bindings>

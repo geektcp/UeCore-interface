@@ -1,0 +1,14 @@
+﻿## Interface: 30300
+## Title: [BF] QuickCompare
+## Title-zhCN: [KK魔兽]装备比较
+## Title-zhTW: [大腳]裝備比較
+## Notes: |cffbc8f8fAuot compare with equipment when mouse is hover on item.|r                                             Runtime: |cff00ff00Low|r                                             Memory: |cff00ff00Low|r
+## Notes-zhCN: |cff00ff00QuickCompare|r                                             |cffbc8f8f自动同身上的装备进行比较。|r                                             运行时间占用率：|cff00ff00低|r                                             内存占用率：|cff00ff00低|r
+## Notes-zhTW: |cff00ff00QuickCompare|r                                             |cffbc8f8f自動同身上的裝備進行比較。|r                                             運行時間占用率：|cff00ff00低|r                                             記憶体佔用率：|cff00ff00低|r
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+QuickCompare.lua
+QuickCompare.xml
+

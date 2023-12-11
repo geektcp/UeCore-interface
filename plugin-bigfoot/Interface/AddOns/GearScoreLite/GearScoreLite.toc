@@ -1,0 +1,15 @@
+﻿## Interface: 30300
+## Title: Gear Score Lite
+## Title-zhCN: [KK魔兽][集]装备评分
+## Title-zhTW: [大腳][集]装备評分
+## Notes: |cffbc8f8fQuickly and easily judge a player's level of Gear.|r
+## Notes-zhCN: |cff00ff00GearScoreLite|r                                             |cffbc8f8f快速计算玩家的装备分数。|r
+## Notes-zhTW: |cff00ff00GearScoreLite|r                                             |cffbc8f8f快速計算玩家的裝備分數。|r
+## Version: 3x03
+## Author: Mirrikat45
+## SavedVariables: GS_Settings
+## X-Revision: BigFoot
+## Dependencies: BigFoot
+
+informationLite.lua
+GearScoreLite.lua

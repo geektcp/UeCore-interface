@@ -1,0 +1,399 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="EventAlert_IconOptions.lua"/>
+
+    <Frame name="EA_Icon_Options_Frame" toplevel="true" frameStrata="HIGH" movable="true" enableMouse="true" hidden="true" parent="EA_Options_Frame" enableKeyboard="true">
+
+        <Size>
+            <AbsDimension x="300" y="470"/>
+        </Size>
+
+        <Anchors>
+			<Anchor point="LEFT" relativepoint="RIGHT"/>
+        </Anchors>
+
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+
+        <Layers>
+
+            <Layer level="ARTWORK">
+
+                <Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+                    <Size>
+                        <AbsDimension x="400" y="64"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOP">
+                            <Offset>
+                                <AbsDimension x="0" y="12"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+
+                <FontString inherits="GameFontNormal" text="EA_XOPT_ICONPOSOPT">
+                    <Anchors>
+                        <Anchor point="TOP" relativeTo="$parent_Header">
+                            <Offset>
+                                <AbsDimension x="0" y="-14"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+            </Layer>
+
+        </Layers>
+
+        <Frames>
+        	<CheckButton name="$parent_LockFrame" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset>
+                            <AbsDimension x="50" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_LOCKFRAME);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.LockFrame = true;
+                        else
+                            EA_Config.LockFrame = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_LOCKFRAME);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+
+			<Slider name="$parent_IconSize" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <!-- <Anchor point="TOP" relativePoint="CENTER"> -->
+                    <Anchor point="TOP" relativeTo="$parent_LockFrame" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="100" y="-10"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_ICONSIZE.."(60)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_LARGE);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_SMALL);
+                        this:SetMinMaxValues(30.0,90.0);
+                        this:SetValueStep(5.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Config.IconSize = this:GetValue();
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_ICONSIZE.."("..EA_Config.IconSize..")");
+                        EventAlert_Icon_Options_Frame_AdjustTimerFontSize();
+                        EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONSIZE);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Slider name="$parent_IconXOffset" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconSize" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_HORSPACE.."(100)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_MORE);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_LESS);
+                        this:SetMinMaxValues(-200.0,200.0);
+                        this:SetValueStep(5.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.xOffset = this:GetValue();
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_HORSPACE.."("..(EA_Position.xOffset+100)..")");
+						EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONXOFFSET);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Slider name="$parent_IconYOffset" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconXOffset" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_VERSPACE.."(0)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_MORE);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_LESS);
+                        this:SetMinMaxValues(-200.0,200.0);
+                        this:SetValueStep(5.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.yOffset = this:GetValue();
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_VERSPACE.."("..EA_Position.yOffset..")");
+                        EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONYOFFSET);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Slider name="$parent_IconRedDebuff" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconYOffset" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_REDDEBUFF.."(50%)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_LIGHT);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_DEEP);
+                        this:SetMinMaxValues(-50.0,50.0);
+                        this:SetValueStep(1.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.RedDebuff = (this:GetValue() + 50) / 100;
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_REDDEBUFF.."("..(100 - 100*EA_Position.RedDebuff).."%)");
+                        EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONREDDEBUFF);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Slider name="$parent_IconGreenDebuff" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconRedDebuff" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_GREENDEBUFF.."(50%)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_LIGHT);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_DEEP);
+                        this:SetMinMaxValues(-50.0,50.0);
+                        this:SetValueStep(1.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.GreenDebuff = (this:GetValue() + 50) / 100;
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_GREENDEBUFF.."("..(100 - 100*EA_Position.GreenDebuff).."%)");
+                        EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONGREENDEBUFF);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+        	<!-- <CheckButton name="$parent_Tar_NewLine" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconGreenDebuff" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="-30" y="-15"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_TAR_NEWLINE);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Position.Tar_NewLine = true;
+                        else
+                            EA_Position.Tar_NewLine = false;
+                        end
+						EventAlert_Icon_Options_Frame_ToggleNewLineAnchor();
+                        EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_TAR_NEWLINE);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton> -->
+
+            <!-- <Slider name="$parent_Tar_IconXOffset" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_Tar_NewLine" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="30" y="-10"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_TAR_HORSPACE.."(0)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_MORE);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_LESS);
+                        this:SetMinMaxValues(-300.0,300.0);
+                        this:SetValueStep(5.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.Tar_xOffset = this:GetValue();
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_TAR_HORSPACE.."("..(EA_Position.Tar_xOffset)..")");
+						EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_TAR_ICONXOFFSET);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+            
+            <Slider name="$parent_Tar_IconYOffset" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_Tar_IconXOffset" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_TAR_VERSPACE.."(-80)");
+                        getglobal(this:GetName().."High"):SetText(EA_XICON_MORE);
+                        getglobal(this:GetName().."Low"):SetText(EA_XICON_LESS);
+                        this:SetMinMaxValues(-200.0,200.0);
+                        this:SetValueStep(5.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.Tar_yOffset = this:GetValue();
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_TAR_VERSPACE.."("..EA_Position.Tar_yOffset..")");
+                        EventAlert_Icon_Options_Frame_PaintAlertFrame();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_TAR_ICONYOFFSET);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider> -->
+
+
+            <Button name="$parent_ToggleAlertFrame" inherits="OptionsButtonTemplate" text="">
+                <Anchors>
+                    <Anchor point="CENTER" relativePoint="BOTTOM">
+                        <Offset>
+                            <AbsDimension x="0" y="50"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="175" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_TOGGLE_ALERTFRAME);
+                    </OnLoad>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        EventAlert_Icon_Options_Frame_ToggleAlertFrame();
+                    </OnClick>
+                </Scripts>
+            </Button>
+
+            <Button name="$parent_ResetAlertPosition" inherits="OptionsButtonTemplate" text="">
+                <Anchors>
+                    <Anchor point="CENTER" relativeTo="$parent_ToggleAlertFrame" relativePoint="BOTTOM">
+                        <Offset>
+                            <AbsDimension x="0" y="-15"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="150" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XICON_RESET_FRAMEPOS);
+                    </OnLoad>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        EventAlert_Icon_Options_Frame_ResetFrame();
+                    </OnClick>
+                </Scripts>
+            </Button>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+	            this:RegisterForDrag("LeftButton");
+                EventAlert_Icon_Options_Frame_OnLoad();
+            </OnLoad>
+        	<OnMouseDown>
+	        	EventAlert_Icon_Options_Frame_MouseDown(button);
+	      	</OnMouseDown>
+	      	<OnMouseUp>
+	        	EventAlert_Icon_Options_Frame_MouseUp(button);
+	      	</OnMouseUp>
+        </Scripts>
+</Frame>
+
+</Ui>

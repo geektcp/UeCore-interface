@@ -1,0 +1,16 @@
+﻿## Interface: 30300
+## Title: Blizz Move
+## Title-zhCN: [KK魔兽][集]窗体移动
+## Title-zhTW: [大腳][集]窗體移動
+## Notes: |cffbc8f8fMove those blizzard windows by yess.|r
+## Notes-zhTW: |cff00ff00BlizzMove|r                                             |cffbc8f8f移動系統各種默認窗體。|r
+## Notes-zhCN: |cff00ff00BlizzMove|r                                             |cffbc8f8f移动系统各种默认窗体。|r
+## Author: yess
+## Version: 0.3
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## SavedVariablesPerCharacter: BlizzMoveDB
+## LoadOnDemand: 1
+
+Blizzmove.lua
+

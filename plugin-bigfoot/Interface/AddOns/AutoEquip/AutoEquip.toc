@@ -1,0 +1,13 @@
+﻿## Interface: 30300
+## Title: [BF]AutoEquip
+## Title-zhCN: [KK魔兽]自动换装
+## Title-zhTW: [大腳]自動換裝
+## Notes: |cffbc8f8fAllow you to set up to 8 equipment set.|r                                             Runtime: |cff00ff00Low|r                                             Memory: |cff00ff00Low|r
+## Notes-zhCN: |cff00ff00AutoEquip|r                                             |cffbc8f8f允许你设置多达8套的套装。|r                                             运行时间占用率：|cff00ff00低|r                                             内存占用率：|cff00ff00低|r
+## Notes-zhTW: |cff00ff00AutoEquip|r                                             |cffbc8f8f允許你設置多達8套的套裝。|r                                             運行時間占用率：|cff00ff00低|r                                             記憶体佔用率：|cff00ff00低|r
+## SavedVariablesPerCharacter: AutoEquip_Cf
+## Dependencies: BigFoot
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+
+AutoEquip.xml

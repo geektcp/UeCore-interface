@@ -1,0 +1,30 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<!--@debug@
+<Script file="Participant\Participant.lua"/>
+<Script file="Participant\Ready.lua"/>
+<Script file="Participant\RaidWarn.lua"/>
+<Script file="Participant\MainTank.lua"/>
+<Script file="Participant\Item.lua"/>
+
+<Script file="Leader\Ready.lua"/>
+<Script file="Leader\MainTank.lua"/>
+<Script file="Leader\Item.lua"/>
+<Script file="Leader\Durability.lua"/>
+<Script file="Leader\Latency.lua"/>
+<Script file="Leader\Resist.lua"/>
+<Script file="Leader\Invite.lua"/>
+<Script file="Leader\RaidWarn.lua"/>
+<Script file="Leader\Loot.lua"/>
+
+<Include file="Optional\MainTank.xml"/>
+<Script file="Optional\MainTank.lua"/>
+<Include file="Optional\PlayerTarget.xml"/>
+<Script file="Optional\PlayerTarget.lua"/>
+<Script file="Optional\Resurrection.lua"/>
+<Script file="Optional\Zone.lua"/>
+<Script file="Optional\Version.lua"/>
+<Script file="Optional\CoolDown.lua"/>
+<Script file="Optional\Group.lua"/>
+@end-debug@-->
+</Ui>

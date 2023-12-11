@@ -1,0 +1,18 @@
+﻿## Interface: 30300
+## Title: [BF] Mail Mod
+## Title-zhCN: [KK魔兽]邮件助手
+## Title-zhTW: [大腳]郵件助手
+## Notes: |cffbc8f8fAllows you to mass open multiple mails.|r
+## Notes-zhCN: |cff00ff00MailMod|r                                             |cffbc8f8f使你能够批量收取信件。|r
+## Notes-zhTW: |cff00ff00MailMod|r                                             |cffbc8f8f使你能夠批量收取信件。|r
+
+
+## Author: Mod By Terry@BF
+## Version: 1.0.0.1
+## LoadOnDemand: 1
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## SavedVariables: MailMod_Config
+
+MailMod.xml
+

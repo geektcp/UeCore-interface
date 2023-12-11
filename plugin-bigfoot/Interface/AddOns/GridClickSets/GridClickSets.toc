@@ -1,0 +1,19 @@
+﻿## Interface: 30300
+## Title: <Grid> GridClickSets
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 按钮设置
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 按鈕設置
+## Notes: |cffbc8f8fSet the clicking action for Grid buttons.|r
+## Notes-zhTW: |cff00ff00GridClickSets|r                                             |cffbc8f8f设置按钮的点击动作。|r
+## Notes-zhCN: |cff00ff00GridClickSets|r                                             |cffbc8f8f設置按鈕的點擊動作。|r
+## Author: Warbaby
+## Version: 1.0
+## Dependencies: Grid
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: r4
+## X-Curse-Project-Name: GridClickSets
+## X-Curse-Project-ID: gridclicksets
+## X-Curse-Repository-ID: wow/gridclicksets/mainline
+## X-Revision: BigFoot
+## LoadWith: Grid
+
+embeds.xml

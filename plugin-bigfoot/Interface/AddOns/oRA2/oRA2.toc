@@ -1,0 +1,20 @@
+﻿## Interface: 30300
+## Title: oRA2
+## Title-zhCN: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r |cff0055FF核心|r
+## Title-zhTW: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r |cff0055FF核心|r
+## Notes: |cffbc8f8fA CT_RaidAssist alternative.|r
+## Notes-zhCN: |cff00ff00oRA2|r                                             |cffbc8f8f团队助手。|r
+## Notes-zhTW: |cff00ff00oRA2|r                                             |cffbc8f8f團隊助手。|r
+## Version: 2.0.$Revision: 628 $
+## Author: Ammo, Rabbit
+## OptionalDeps: Ace2, SharedMedia, LibSharedMedia-3.0, LibDBIcon-1.0
+## X-Category: Raid
+## SavedVariables: oRADB
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+LoadOnDemand.lua
+Core.lua
+Options.lua
+modules.xml
+

@@ -1,0 +1,1081 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="ModManagement.lua"/>
+	
+	<FontString name="ModManagementFrameWelcomeFont" inherits="ChatFontNormal" virtual="true">
+		<FontHeight>
+			<AbsValue val="12"/>
+		</FontHeight>
+		<Color r="0.8" g="0.8" b="0.8"/>
+	</FontString>
+	
+	<FontString name="ModManagementFrameHeaderFont" inherits="GameFontNormal" virtual="true">
+		<FontHeight>
+			<AbsValue val="14"/>
+		</FontHeight>
+		<Color r="0.7" g="0.7" b="0.7"/>
+	</FontString>
+	
+	<FontString name="ModOptionCheckBoxFont" inherits="QuestFont" virtual="true">
+		<FontHeight>
+			<AbsValue val="14"/>
+		</FontHeight>
+		<Color r="1.0" g="0.82" b="0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</FontString>
+	
+	<Frame name ="ModStaticBoxTemplate" virtual = "true">
+		<Size>
+			<AbsDimension x= "244" y ="32"/>
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentText" inherits="ModOptionCheckBoxFont" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="15" y="-15"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<Frame name="ModOptionFrameBoxTemplate" virtual="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentTitle" inherits="GameFontHighlight">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="9" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="16"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="16"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5"/>
+			</BackgroundInsets>
+		</Backdrop>
+		<Scripts>
+			<OnLoad>
+				self:SetBackdropBorderColor(0.4, 0.4, 0.4);
+				self:SetBackdropColor(0.5, 0.5, 0.5);
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	
+	<CheckButton name="ModButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="37" y="37"/>
+		</Size>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentIconTexture" hidden="true">
+					<Size>
+						<AbsDimension x="37" y="37"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				
+				<FontString name="$parentModName" inherits="ModOptionCheckBoxFont" hidden="true" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="79" y="0"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					
+					
+				</FontString>
+				<FontString name="$parentSubModName" inherits="SubSpellFont" hidden="true" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="79" y="18"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentModName" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="4"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					
+				</FontString>
+			</Layer>
+			<Layer level="BORDER">
+
+				<Texture name="$parentIconHighlight2" file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD" hidden="true">
+					<Size>
+						<AbsDimension x="38" y="38"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				ModButton_OnLoad(self);
+			</OnLoad>
+			<OnShow>
+				ModButton_OnShow(self);
+			</OnShow>
+			<OnClick>
+				ModButton_OnClick(self);
+			</OnClick>
+			<OnEnter>
+				ModButton_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				ModButton_OnLeave(self);
+			</OnLeave>
+			<OnUpdate>
+				ModButton_OnUpdate(self, elapsed);
+			</OnUpdate>
+		</Scripts>
+		<NormalTexture name="$parentNormalTexture" file="Interface\Buttons\UI-Quickslot2">
+			<Size>
+				<AbsDimension x="64" y="64"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</NormalTexture>
+		<PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+		<HighlightTexture name="$parentHighlight" file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+		<CheckedTexture file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD"/>
+	</CheckButton>
+	
+	<CheckButton name="ModOptionCheckButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="380" y="30"/>
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentText" inherits="ModOptionCheckBoxFont">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="32" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				ModElement_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				ModElement_OnLeave(self);
+			</OnLeave>
+			<OnClick>
+				if ( self:GetChecked() ) then
+					PlaySound("igMainMenuOptionCheckBoxOff");
+				else
+					PlaySound("igMainMenuOptionCheckBoxOn");
+				end
+				ModOptionCheckButton_OnClick(self);
+			</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\Buttons\UI-CheckBox-Up">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</NormalTexture>
+		<PushedTexture file="Interface\Buttons\UI-CheckBox-Down">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</PushedTexture>
+		<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</HighlightTexture>
+		<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</CheckedTexture>
+		<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</DisabledCheckedTexture>
+	</CheckButton>
+
+	<Button name="ModOptionCommandButtonTemplate" virtual="true">
+		<ButtonText name="$parentText">
+			<Anchors>
+				<Anchor point="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="1"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="GameFontNormal"/>
+		<HighlightFont style="GameFontHighlight"/>
+		<DisabledFont style="GameFontDisable"/>
+		<NormalTexture inherits="UIPanelButtonUpTexture"/>
+		<PushedTexture inherits="UIPanelButtonDownTexture"/>
+		<DisabledTexture inherits="UIPanelButtonDisabledTexture"/>
+		<HighlightTexture inherits="UIPanelButtonHighlightTexture"/>
+		<Size>
+			<AbsDimension x="124" y="26"/>
+		</Size>
+		<Scripts>
+			<OnClick>
+				ModOptionCommandButton_OnClick(self);
+			</OnClick>
+			<OnEnter>
+				ModElement_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				ModElement_OnLeave(self);
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<CheckButton name="ModLinkButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="75" y="30"/> 
+		</Size>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentIconTexture" setAllPoints="true" hidden="true"/>
+				<FontString name="$parentModName" inherits="ModOptionCheckBoxFont" hidden="true" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="103" y="0"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM">
+							<Offset>
+								<AbsDimension x="4" y="4"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				ModLinkButton_OnLoad(self);
+			</OnLoad>
+			<OnClick>
+				ModLinkButton_OnClick(self);
+			</OnClick>
+			<OnEnter>
+				ModLinkButton_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				ModLinkButton_OnLeave(self);
+			</OnLeave>
+		</Scripts>
+		<NormalTexture name="$parentNormalTexture" file="Interface\Buttons\UI-Quickslot2">
+			<Size>
+				<AbsDimension x="75" y="32"/>
+			</Size>
+			<TexCoords left="0.0" right="0.5859375" top="0.0" bottom="1.0"/>
+		</NormalTexture>
+		<HighlightTexture name="$parentHighlight" file="Interface\AddOns\BigFoot\Media\highlight" alphaMode="ADD">
+			<Size>
+				<AbsDimension x="75" y="32"/>
+			</Size>
+		</HighlightTexture>
+		<CheckedTexture name="$parentChecked" file="Interface\AddOns\BigFoot\Media\highlight" alphaMode="ADD">
+			<Size>
+				<AbsDimension x="75" y="32"/>
+			</Size>
+		</CheckedTexture>
+	</CheckButton>
+
+	<CheckButton name="ModManagementFrameTabTemplate" virtual="true" hidden="true">
+		<Size x="32" y="32"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBackground" file="Interface\SpellBook\SpellBook-SkillLineTab">
+					<Size x="64" y="64"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="-3" y="11"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="$parentIconTexture" >
+					<Size>
+						<AbsDimension x="32" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				
+			</Layer>
+			<Layer level="ARTWORK">
+				
+				<Texture name="$parentIconHighlight" file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD" hidden="true">
+					<Size>
+						<AbsDimension x="32" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				ModFrameTab_OnEnter(self);
+
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+			<OnUpdate>
+				ModFrameTab_OnUpdate(self,elapsed)
+			</OnUpdate>
+		</Scripts>
+		<HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+		<CheckedTexture file="Interface\Buttons\CheckButtonHilight" alphaMode="ADD"/>
+	</CheckButton>
+	
+	<Frame name="ModManagementFrame" frameStrata="DIALOG" toplevel="true" movable="true" enableMouse="true" hidden="true" parent="UIParent">
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Size>
+			<AbsDimension x="600" y="395"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<HitRectInsets>
+			<AbsInset left="0" right="30" top="0" bottom="70"/>
+		</HitRectInsets>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentTextureTopLeft" file="Interface\AddOns\BigFoot\Media\ModManagementFrame-TopLeft">
+					<Size>
+						<AbsDimension x="256" y="256"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTextureTop" file="Interface\AddOns\BigFoot\Media\ModManagementFrame-Top">
+					<TexCoords left="0.0" top="0.0" right="0.6796875" bottom="1.0"/>
+					<Size>
+						<AbsDimension x="87" y="256"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentTextureTopLeft" relativePoint="RIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTextureTopRight" file="Interface\AddOns\BigFoot\Media\ModManagementFrame-TopRight">
+					<Size>
+						<AbsDimension x="256" y="256"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentTextureTop" relativePoint="RIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTextureBottomLeft" file="Interface\AddOns\BigFoot\Media\ModManagementFrame-BottomLeft">
+					<TexCoords left="0.0" top="0.4375" right="1.0" bottom="1.0"/>
+					<Size>
+						<AbsDimension x="256" y="144"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextureTopLeft" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTextureBottom" file="Interface\AddOns\BigFoot\Media\ModManagementFrame-Bottom">
+					<TexCoords left="0.0" top="0.4375" right="0.6796875" bottom="1.0"/>
+					<Size>
+						<AbsDimension x="87" y="144"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentTextureBottomLeft" relativePoint="RIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTextureBottomRight" file="Interface\AddOns\BigFoot\Media\ModManagementFrame-BottomRight">
+					<TexCoords left="0.0" top="0.4375" right="1.0" bottom="1.0"/>
+					<Size>
+						<AbsDimension x="256" y="144"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentTextureBottom" relativePoint="RIGHT"/>
+					</Anchors>
+				</Texture>
+				<FontString name="ModManagementPageText" inherits="GameFontNormal">
+					<Size>
+						<AbsDimension x="102" y="0"/>
+					</Size>
+					<Anchors>
+						<Anchor point="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="111" y="41"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString name="$parentHeaderText" inherits="ModManagementFrameHeaderFont">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="$parent">
+							<Offset>
+								<AbsDimension x="0" y="-31"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentLogoFrame">
+				<Size>
+					<AbsDimension x="270" y="270"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="ModManagementFrame" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-52" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<Texture name="ModManagementLogo" file="Interface\AddOns\BigFoot\Media\Logo">
+							<Size>
+								<AbsDimension x="256" y="128"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="0" y="-60"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="ModManagementWatermark" file="Interface\AddOns\BigFoot\Media\Logo">
+							<Size>
+								<AbsDimension x="256" y="128"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="0" y="-180"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<FontString name="ModManagementWelcomeText" inherits="ModManagementFrameWelcomeFont" justifyH="LEFT">
+							<Size>
+								<AbsDimension x="235" y="0"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="-5" y="-170"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>				
+						<FontString name="ModManagementLinkText" inherits="ModManagementFrameWelcomeFont" justifyH="LEFT" text="88888888">
+							<Size>
+								<AbsDimension x="235" y="0"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="-5" y="-80"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>		
+					
+					</Layer>
+				</Layers>
+			</Frame>
+			<Button name="$parentDetailButton" inherits="UIPanelButtonTemplate">
+				<Size>
+					<AbsDimension x="88" y="30"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="ModManagementFrame" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-70" y="75"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						HideUIPanel(ModManagementFrame);
+						BigFootReader_ShowBook(BF_CHANGELOG_TEXT);
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentCloseButton" inherits="UIPanelButtonTemplate">
+				<Size>
+					<AbsDimension x="88" y="26"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="ModManagementFrame" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-50" y="35"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						HideUIPanel(ModManagementFrame);
+					</OnClick>
+				</Scripts>
+			</Button>
+
+			<Button name="ModPrevPageButton">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="ModManagementFrame" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="67" y="47"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="$parentText" inherits="ModOptionCheckBoxFont" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="ModPrevPageButton" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						ModPrevPageButton_OnClick(self);
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Down"/>
+				<DisabledTexture file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Disabled"/>
+				<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>
+			</Button>
+			<Button name="ModNextPageButton">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="ModPrevPageButton" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="190" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString  name="$parentText" inherits="ModOptionCheckBoxFont" justifyH="RIGHT">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="ModNextPageButton" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						ModNextPageButton_OnClick(self);
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\Buttons\UI-SpellbookIcon-NextPage-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-SpellbookIcon-NextPage-Down"/>
+				<DisabledTexture file="Interface\Buttons\UI-SpellbookIcon-NextPage-Disabled"/>
+				<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>
+			</Button>
+			<Button name="ModCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="ModManagementFrame" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-16" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<CheckButton name="ModManagementFrameTab1" inherits="ModManagementFrameTabTemplate" id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-5" y="-35"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\ability_racial_bearform]]);
+						self:SetText(MOD_MANAGEMENT_TAB_1);
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,1)
+					</OnClick>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModManagementFrameTab2" inherits="ModManagementFrameTabTemplate" id="2">
+				<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="ModManagementFrameTab1" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-17"/>
+							</Offset>
+						</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\ability_warrior_challange]]);
+						self:SetText(MOD_MANAGEMENT_TAB_2);
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,2)
+					</OnClick>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModManagementFrameTab3" inherits="ModManagementFrameTabTemplate" id="3">
+				<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="ModManagementFrameTab2" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-17"/>
+						</Offset>
+						</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+					
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\ability_ambush]]);						
+						self:SetText(MOD_MANAGEMENT_TAB_3);
+
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,3)
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModManagementFrameTab4" inherits="ModManagementFrameTabTemplate" id="4">
+				<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="ModManagementFrameTab3" relativePoint="BOTTOMLEFT">
+							<Offset>
+									<AbsDimension x="0" y="-17"/>
+						</Offset>
+						</Anchor>
+				</Anchors>
+			
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\inv_misc_head_dragon_black]]);						
+						
+						self:SetText(MOD_MANAGEMENT_TAB_4);
+
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,4)
+					</OnClick>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModManagementFrameTab5" inherits="ModManagementFrameTabTemplate" id="5">
+				<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="ModManagementFrameTab4" relativePoint="BOTTOMLEFT">
+							<Offset>
+										<AbsDimension x="0" y="-17"/>
+						</Offset>
+						</Anchor>
+				</Anchors>
+
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\INV_Misc_Bag_14]]);						
+						
+						self:SetText(MOD_MANAGEMENT_TAB_5);
+
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,5)
+					</OnClick>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModManagementFrameTab6" inherits="ModManagementFrameTabTemplate" id="6">
+				<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="ModManagementFrameTab5" relativePoint="BOTTOMLEFT">
+							<Offset>
+									<AbsDimension x="0" y="-17"/>
+							</Offset>
+						</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\ability_spy]]);						
+						self:SetText(MOD_MANAGEMENT_TAB_6);
+
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,6)
+					</OnClick>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModManagementFrameTab7" inherits="ModManagementFrameTabTemplate" id="7">
+				<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="ModManagementFrameTab6" relativePoint="BOTTOMLEFT">
+							<Offset>
+									<AbsDimension x="0" y="-17"/>
+						</Offset>
+						</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."IconTexture"]:SetTexture([[Interface\Icons\trade_engineering]]);								
+						self:SetText(MOD_MANAGEMENT_TAB_7);
+
+					</OnLoad>
+					<OnClick>
+						ModFrameTab_OnClick(self,7)
+					</OnClick>
+
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ModLinkButton1" inherits="ModLinkButtonTemplate" id="1">
+				<Anchors>
+					<Anchor point="BOTTOM" relativeTo="ModManagementFrame" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-255" y="100"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModLinkButton2" inherits="ModLinkButtonTemplate" id="2">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="ModLinkButton1" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModLinkButton3" inherits="ModLinkButtonTemplate" id="3">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="ModLinkButton2" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModLinkButton4" inherits="ModLinkButtonTemplate" id="4">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ModLinkButton1" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="-10"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModLinkButton5" inherits="ModLinkButtonTemplate" id="5">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="ModLinkButton4" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModLinkButton6" inherits="ModLinkButtonTemplate" id="6">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="ModLinkButton5" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton1" inherits="ModButtonTemplate" id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="47" y="-69"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton2" inherits="ModButtonTemplate" id="2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton1">
+						<Offset>
+							<AbsDimension x="117" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton3" inherits="ModButtonTemplate" id="3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton1" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton4" inherits="ModButtonTemplate" id="4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton3">
+						<Offset>
+							<AbsDimension x="117" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton5" inherits="ModButtonTemplate" id="5">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton3" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton6" inherits="ModButtonTemplate" id="6">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton5">
+						<Offset>
+							<AbsDimension x="117" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton7" inherits="ModButtonTemplate" id="7">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton5" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton8" inherits="ModButtonTemplate" id="8">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton7">
+						<Offset>
+							<AbsDimension x="117" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton9" inherits="ModButtonTemplate" id="9">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton7" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton10" inherits="ModButtonTemplate" id="10">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton9">
+						<Offset>
+							<AbsDimension x="117" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton11" inherits="ModButtonTemplate" id="11">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton9" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModButton12" inherits="ModButtonTemplate" id="12">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ModButton11">
+						<Offset>
+							<AbsDimension x="117" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ModOptionCheckButton1" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton2" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton3" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton4" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton5" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton6" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton7" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton8" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton9" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton10" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton11" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton12" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton13" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton14" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton15" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton16" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton17" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton18" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton19" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<CheckButton name="ModOptionCheckButton20" inherits="ModOptionCheckButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton1" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton2" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton3" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton4" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton5" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton6" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton7" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton8" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton9" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Button name="ModOptionCommandButton10" inherits="ModOptionCommandButtonTemplate" hidden="true"/>
+			<Frame name="ModStaticText1" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText2" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText3" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText4" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText5" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText6" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText7" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText8" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText9" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText10" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText11" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText12" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText13" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText14" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText15" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText16" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText17" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText18" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText19" inherits="ModStaticBoxTemplate" hidden="true"/>
+			<Frame name="ModStaticText20" inherits="ModStaticBoxTemplate" hidden="true"/>
+			
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				ModManagementFrame_OnLoad(self);
+				self:SetBackdropBorderColor(0.8, 0.8, 0.8);
+				self:SetBackdropColor(0.7, 0.7, 0.7);
+			</OnLoad>
+			<OnEvent>
+				ModManagementFrame_OnEvent(self,event);
+			</OnEvent>
+			<OnShow>
+				ModManagementFrame_OnShow(self);
+			</OnShow>
+			<OnHide>
+				ModManagementFrame_OnHide(self);
+			</OnHide>
+			
+			<OnMouseDown>
+				self:StartMoving();
+			</OnMouseDown>
+			<OnMouseUp>
+				self:StopMovingOrSizing();
+			</OnMouseUp>
+		</Scripts>
+	</Frame>
+	<GameTooltip name="ModManagementTooltip" frameStrata="TOOLTIP" hidden="true" inherits="GameTooltipTemplate"/>
+</Ui>

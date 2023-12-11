@@ -1,0 +1,178 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="EventAlertClassAlerts.lua"/>
+
+    <Frame name="Class_Events_Frame" toplevel="true" frameStrata="HIGH" movable="true" enableMouse="true" hidden="true" parent="EA_Options_Frame" enableKeyboard="true">
+
+        <Size>
+            <AbsDimension x="325" y="500"/>
+        </Size>
+
+        <Anchors>
+			<Anchor point="LEFT" relativepoint="RIGHT"/>
+        </Anchors>
+
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+
+        <Layers>
+
+            <Layer level="ARTWORK">
+
+                <Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+                    <Size>
+                        <AbsDimension x="400" y="64"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOP">
+                            <Offset>
+                                <AbsDimension x="0" y="12"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+
+                <FontString inherits="GameFontNormal" text="EA_TOGGLE_PRIMARIES">
+                    <Anchors>
+                        <Anchor point="TOP" relativeTo="Class_Events_Frame_Header">
+                            <Offset>
+                                <AbsDimension x="0" y="-14"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString inherits="GameFontNormal" text="Spells are sorted by spell ID.">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="Class_Events_Frame">
+                            <Offset>
+                                <AbsDimension x="0" y="85"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString inherits="GameFontNormal" text="Spell IDs are listed in brackets.">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="Class_Events_Frame">
+                            <Offset>
+                                <AbsDimension x="0" y="65"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString inherits="GameFontNormal" text="To look up the spellID, copy the following:">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="Class_Events_Frame">
+                            <Offset>
+                                <AbsDimension x="0" y="35"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <Frames>
+		<EditBox name="$parent_EditBox" letters="41" multiLine="false" ignoreArrows="true" autoFocus="false">
+			<Size>
+				<AbsDimension x="290" y="20" />
+			</Size>
+	        <Anchors>
+	        	<Anchor point="BOTTOM" relativeTo="$parent">
+	            	<Offset>
+	                	<AbsDimension x="5" y="15"/>
+	                </Offset>
+	            </Anchor>
+    	    </Anchors>
+			<FontString inherits="ChatFontNormal" />
+		</EditBox>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+	            this:RegisterForDrag("LeftButton");
+                Class_Events_OnLoad();
+            </OnLoad>
+        	<OnMouseDown>
+	        	Class_Events_Frame_MouseDown(button);
+	      	</OnMouseDown>
+	      	<OnMouseUp>
+	        	Class_Events_Frame_MouseUp(button);
+	      	</OnMouseUp>
+        </Scripts>
+</Frame>
+
+
+<Frame name="Alt_Alerts_Frame" toplevel="true" frameStrata="HIGH" movable="true" enableMouse="true" hidden="true" parent="Class_Events_Frame" enableKeyboard="true">
+
+        <Size>
+            <AbsDimension x="325" y="500"/>
+        </Size>
+
+        <Anchors>
+			<Anchor point="LEFT" relativepoint="RIGHT"/>
+        </Anchors>
+
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+
+        <Layers>
+
+            <Layer level="ARTWORK">
+
+                <Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+                    <Size>
+                        <AbsDimension x="400" y="64"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOP">
+                            <Offset>
+                                <AbsDimension x="0" y="12"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+
+                <FontString inherits="GameFontNormal" text="EA_TOGGLE_ALT">
+                    <Anchors>
+                        <Anchor point="TOP" relativeTo="Alt_Alerts_Frame_Header">
+                            <Offset>
+                                <AbsDimension x="0" y="-14"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+            </Layer>
+        </Layers>
+
+        <Frames>
+
+        </Frames>
+
+        <Scripts>
+
+        </Scripts>
+</Frame>
+
+</Ui>

@@ -1,0 +1,12 @@
+﻿## Interface: 30300
+## Title: Combuctor Basic Sets
+## Title-zhCN: [KK魔兽][集]背包整合设置
+## Title-zhTW: [大腳][集]背包整合設置
+## Notes: |cffbc8f8fProvides basic sets for Combuctor.|r
+## Notes-zhCN: |cff00ff00Combuctor_Sets|r                                             |cffbc8f8f为背包整合插件提供设置功能。|r
+## Notes-zhTW: |cff00ff00Combuctor_Sets|r                                             |cffbc8f8f為背包整合插件提供設置功能。|r
+## Author: Tuller
+## Dependencies: Combuctor ,BigFoot
+## X-Revision: BigFoot
+
+sets.lua

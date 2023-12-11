@@ -1,0 +1,5 @@
+GRIDCLICKSETS_MENUNAME = "Click Set"
+GRIDCLICKSETS_MENUTIP = "Sets the clicking actions for every unit button."
+GRIDCLICKSETS_TITLE = "Grid Click Sets"
+GRIDCLICKSETS_LOCKWARNING = "Can't set attributes during combat, settings will be applied later."
+GRIDCLICKSETS_SET = "Grid Click Sets has been applied."

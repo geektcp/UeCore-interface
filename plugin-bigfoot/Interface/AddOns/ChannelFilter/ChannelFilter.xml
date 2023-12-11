@@ -1,0 +1,288 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="ChannelFilter.lua"/>
+	<Frame name="ChannelFilterFrame">
+		<Scripts>
+			<OnLoad>
+				ChannelFilter_OnLoad(self);
+			</OnLoad>
+			<OnEvent>
+				ChannelFilter_OnEvent(self, event, ...);
+			</OnEvent>
+		</Scripts>
+	</Frame>
+	<Button name="ChannelFilterWordButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="224" y="16"/>
+		</Size>
+		<Frames>
+			<Frame name="$parentButtonText" setAllPoints="true">
+				<Layers>
+					<Layer level="BORDER">
+						<FontString name="$parentName" inherits="GameFontNormal" text="1">
+							<Anchors>
+								<Anchor point="TOPLEFT">
+									<Offset>
+										<AbsDimension x="4" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnClick>
+				ChannelFilterWordButton_OnClick(self, button);
+				PlaySound("igMainMenuOptionCheckBoxOn");
+			</OnClick>
+		</Scripts>
+		<HighlightTexture file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD"/>
+	</Button>
+	<Button name="ChannelFilterMuteButton" frameStrata="LOW" parent="ChatFrame1" hidden="true">
+		<Size>
+			<AbsDimension x="22" y="22"/>
+		</Size>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture  file="Interface\AddOns\BigFoot\Media\normal-up.tga" >
+					<Size>
+						<AbsDimension x="18" y="18"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+				</Texture>
+				
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentMute" file="Interface\AddOns\BigFoot\Media\mute.tga" setAllPoints="true" hidden="true">
+					<Size>
+						<AbsDimension x="20" y="20"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+				</Texture>
+				
+			</Layer>
+		</Layers>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="ChatFrame1" relativePoint="TOPRIGHT">
+				<AbsDimension x="-23" y="3"/>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			
+			<OnClick>
+				PlaySound("igChatEmoteButton");
+				ChannelFilterMuteButton_OnClick();
+			</OnClick>
+			<OnEnter>
+				BigFoot_ShowNewbieTooltip(CHANNEL_FILTER_MUTE_LABEL, CHANNEL_FILTER_MUTE_DESC);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>		
+	</Button>
+	<Frame name="ChannelFilterOptionFrame" toplevel="true" hidden="true">
+		<Size>
+			<AbsDimension x="256" y="256"/>
+		</Size>
+		<Frames>
+			<CheckButton name="ChannelFilterEnable" inherits="ModOptionCheckButtonTemplate" hidden="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ChannelFilterOptionFrame">
+						<Offset>
+							<AbsDimension x="3" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ChannelFilterEnable_OnClick(self);
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="ChannelFilterWordButton1" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ChannelFilterEnable">
+						<Offset>
+							<AbsDimension x="3" y="-30"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton2" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton1" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton3" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton2" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton4" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton3" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton5" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton4" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton6" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton5" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton7" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton6" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="ChannelFilterWordButton8" inherits="ChannelFilterWordButtonTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="ChannelFilterWordButton7" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<ScrollFrame name="ChannelFilterScrollFrame" inherits="FauxScrollFrameTemplate">
+				<Size>
+					<AbsDimension x="32" y="128"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="ChannelFilterOptionFrame">
+						<Offset>
+							<AbsDimension x="-30" y="-30"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnVerticalScroll>
+						FauxScrollFrame_OnVerticalScroll(self, offset, 16, ChannelFilterList_Update);
+					</OnVerticalScroll>
+				</Scripts>
+			</ScrollFrame>
+			<Button name="ChannelFilterAddButton" inherits="UIPanelButtonTemplate" text="CHANNEL_FILTER_ADD_TEXT">
+				<Size>
+					<AbsDimension x="75" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="ChannelFilterOptionFrame">
+						<Offset>
+							<AbsDimension x="6" y="70"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ChannelFilterAddButton_OnClick(self);
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="ChannelFilterRemoveButton" inherits="UIPanelButtonTemplate" text="CHANNEL_FILTER_REMOVE_TEXT">
+				<Size>
+					<AbsDimension x="75" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="ChannelFilterAddButton" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="3" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ChannelFilterRemoveButton_OnClick(self);
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="ChannelFilterResetButton" inherits="UIPanelButtonTemplate" text="CHANNEL_FILTER_REST_TEXT">
+				<Size>
+					<AbsDimension x="75" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="ChannelFilterRemoveButton" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="3" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ChannelFilterResetButton_OnClick(self);
+					</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="ChannelFilterAutoIgnore" inherits="ModOptionCheckButtonTemplate" hidden="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ChannelFilterAddButton" replativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-20"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ChannelFilterAutoIgnore_OnClick(self);
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="ChannelFilterBanFlood" inherits="ModOptionCheckButtonTemplate" hidden="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="ChannelFilterAutoIgnore" replativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-20"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ChannelFilterBanFlood_OnClick(self);
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+		</Frames>
+		<Scripts>
+			<OnShow>
+				ChannelFilterOptionFrame_OnShow(self);
+			</OnShow>
+			<OnHide>
+				ChannelFilterOptionFrame_OnHide(self);
+			</OnHide>
+		</Scripts>
+	</Frame>
+</Ui>

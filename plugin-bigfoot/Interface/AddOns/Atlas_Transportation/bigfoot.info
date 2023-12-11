@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
+    <AddOn name="副本地图查询Atlas" displayName="副本地图查询Atlas" img="/data/wow/106/ui_logo.jpg" info="ui/106" package="down/106/927/Atlas_1.17_.0_.zip" update="2010-08-16" version="1.17.0" />
+</AddOnList>

@@ -1,0 +1,106 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+
+<Script file="EventAlert.lua"/>
+<script file="EventAlert_SpellArray.lua"/>
+<Script file="EventAlert_CreateFrames.lua"/>
+
+<Frame name="EA_Main_Frame" frameStrata="DIALOG" toplevel="true" visible="true" parent="UIParent">
+	<Size>
+		<AbsDimension x="1" y="1" />
+	</Size>
+	<Scripts>
+		<OnLoad>
+			EventAlert_OnLoad(self);
+		</OnLoad>
+		<OnEvent>
+			EventAlert_OnEvent(event);
+		</OnEvent>
+	</Scripts>
+</Frame>
+
+<Frame name="EA_Version_Frame" frameStrata="DIALOG" parent="UIParent" hidden="true">
+
+	<Size>
+    	<AbsDimension x="500" y="350"/>
+    </Size>
+
+    <Anchors>
+		<Anchor point="CENTER" relativepoint="CENTER"/>
+    </Anchors>
+
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+    	<BackgroundInsets>
+        	<AbsInset left="11" right="12" top="12" bottom="11"/>
+        </BackgroundInsets>
+        <TileSize>
+        	<AbsValue val="32"/>
+        </TileSize>
+        <EdgeSize>
+        	<AbsValue val="32"/>
+        </EdgeSize>
+    </Backdrop>
+
+    <Layers>
+    	<Layer level="ARTWORK">
+        	<Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+            	<Size>
+                	<AbsDimension x="400" y="64"/>
+                </Size>
+                <Anchors>
+                	<Anchor point="TOP">
+                    	<Offset>
+                        	<AbsDimension x="0" y="12"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+
+            <FontString inherits="GameFontNormal" text="New EventAlert Version!">
+            	<Anchors>
+                	<Anchor point="TOP" relativeTo="$parent_Header">
+                    	<Offset>
+                        	<AbsDimension x="0" y="-14"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </FontString>
+        </Layer>
+    </Layers>
+
+    <Frames>
+		<EditBox name="$parent_EditBox" letters="0" multiLine="true" ignoreArrows="true" autoFocus="false">
+			<Size>
+				<AbsDimension x="450" y="250" />
+			</Size>
+	        <Anchors>
+	        	<Anchor point="TOP" relativeTo="$parent_Header">
+	            	<Offset>
+	                	<AbsDimension x="0" y="-50"/>
+	                </Offset>
+	            </Anchor>
+    	    </Anchors>
+			<FontString inherits="ChatFontNormal" />
+		</EditBox>
+
+        <Button name="$parent_Okay" inherits="OptionsButtonTemplate" text="Okay">
+        	<Anchors>
+    	        <Anchor point="CENTER" relativepoint="BOTTOM">
+		            <Offset>
+		        		<AbsDimension x="0" y="25"/>
+			        </Offset>
+		        </Anchor>
+	        </Anchors>
+	        <Size>
+				<AbsDimension x="75" y="21"/>
+	        </Size>
+	        <Scripts>
+	            <OnClick>
+		            PlaySound("gsTitleOptionOK");
+		            HideUIPanel(EA_Version_Frame);
+	            </OnClick>
+            </Scripts>
+        </Button>
+    </Frames>
+</Frame>
+
+</Ui>

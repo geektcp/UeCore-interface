@@ -1,0 +1,336 @@
+
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="MobAggro.lua"/>
+	<Button name="MobAggroFrame" hidden="true" frameStrata="BACKGROUND" movable="true" parent="TargetFrame">
+		<Size>
+			<AbsDimension x="120" y="32"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="TargetFrame" relativePoint="BOTTOMLEFT">
+				<Offset>
+					<AbsDimension x="122" y="15"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Frames>
+			<Frame setAllPoints="true">
+				<Frames>
+					<Frame name="$parentArtFrame">
+						<Size>
+							<AbsDimension x="120" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="3"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="BACKGROUND">
+								<Texture file="Interface\AddOns\MobAggro\AggroBar">
+									<Size>
+										<AbsDimension x="120" y="32"/>
+									</Size>
+									<TexCoords left="0.0" right="0.46875" top="0.0" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="$parentTextFrame">
+						<Size>
+							<AbsDimension x="94" y="28"/>
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint = "LEFT" relativeTo="$parentArtFrame">
+								<Offset>
+									<AbsDimension x="27" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="MobAggroText" inherits="GameFontNormal">
+									<Color r="1.0" g="1.0" b="1.0"/>
+									<Anchors>
+										<Anchor point="CENTER">
+											<Offset>
+												<AbsDimension x="-5" y="0"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="$parentDropDown" inherits="BDropDownMenuTemplate" id="1" hidden="true">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-5"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								MobAggroDropDown_OnLoad(self);
+							</OnLoad>
+							<OnShow>
+								MobAggroDropDown_OnLoad(self);
+							</OnShow>
+						</Scripts>
+					</Frame>
+					<Frame name="MobAggroDPSFrame">
+						<Size>
+							<AbsDimension x="22" y="22"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="5" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<Texture file="Interface\AddOns\MobAggro\AggroBar">
+									<Size>
+										<AbsDimension x="22" y="22"/>
+									</Size>
+								<TexCoords left="0.625" right="0.75" top="0.0" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="MobAggroHealerFrame">
+						<Size>
+							<AbsDimension x="22" y="22"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="4" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<Texture file="Interface\AddOns\MobAggro\AggroBar">
+									<Size>
+										<AbsDimension x="22" y="22"/>
+									</Size>
+									<TexCoords left="0.5" right="0.625" top="0.0" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="MobAggroTankFrame">
+						<Size>
+							<AbsDimension x="22" y="22"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="5" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<Texture file="Interface\AddOns\MobAggro\AggroBar">
+									<Size>
+										<AbsDimension x="22" y="22"/>
+									</Size>
+									<TexCoords left="0.875" right="1.0" top="0.0" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="MobAggroWarningFrame">
+						<Size>
+							<AbsDimension x="22" y="22"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="5" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<Texture file="Interface\AddOns\MobAggro\AggroBar">
+									<Size>
+										<AbsDimension x="22" y="22"/>
+									</Size>
+								<TexCoords left="0.75" right="0.875" top="0.0" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+				</Frames>
+			</Frame>
+			<StatusBar name="MobAggroNotifyBar" inherits="TextStatusBar">
+				<Size>
+					<AbsDimension x="88" y="17"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="28" y="-3"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture>
+							<Color r="0.0" g="0.0" b="0.0" a="0.5"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="MobAggroNotifyBarButton" inherits="SecureUnitButtonTemplate">
+						<Size>
+							<AbsDimension x="102" y="18"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Frames>
+							<Frame name="$parentDropDown" inherits="BDropDownMenuTemplate" id="1" hidden="true">
+								<Anchors>
+									<Anchor point="BOTTOMLEFT">
+										<Offset>
+											<AbsDimension x="0" y="-5"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										MobAggroDropDown_OnLoad(self);
+									</OnLoad>
+									<OnShow>
+										MobAggroDropDown_OnLoad(self);
+									</OnShow>
+								</Scripts>
+							</Frame>
+						</Frames>
+						<Scripts>
+							<OnLoad>
+								SecureUnitButton_OnLoad(self, "targettarget");
+							</OnLoad>
+							<PreClick>
+								MobAggroFrame_PreClick(self, button);
+							</PreClick>
+							<OnMouseDown>
+								if (button == "LeftButton" and IsShiftKeyDown()) then
+									MobAggroFrame:StartMoving();
+									MobAggro_Config.AnchorMode = nil;
+									MOB_AGGRO_MOVING = true;
+								end
+							</OnMouseDown>
+							<OnMouseUp>
+								if (button == "LeftButton" and MOB_AGGRO_MOVING) then
+									MobAggroFrame:StopMovingOrSizing();
+									MOB_AGGRO_MOVING = false;
+								end
+							</OnMouseUp>
+							<OnEnter>
+								MobAggroFrame_OnEnter(self);
+							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide();
+							</OnLeave>
+						</Scripts>
+					</Button>
+				</Frames>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0.0" g="1.0" b="0.0" a="1.0"/>
+			</StatusBar>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				MobAggroFrame_OnLoad(self);
+				RegisterForSaveFrame(self);
+			</OnLoad>
+			<OnClick>
+				MobAggroFrame_OnClick(self, button);
+			</OnClick>
+			<OnMouseDown>
+				if (button == "LeftButton" and IsShiftKeyDown()) then
+					MobAggroFrame:StartMoving();
+					MobAggro_Config.AnchorMode = nil;
+					MOB_AGGRO_MOVING = true;
+				end
+			</OnMouseDown>
+			<OnMouseUp>
+				if (button == "LeftButton" and MOB_AGGRO_MOVING) then
+					MobAggroFrame:StopMovingOrSizing();
+					MOB_AGGRO_MOVING = false;
+				end
+			</OnMouseUp>
+			<OnEnter>
+				MobAggroFrame_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+			<OnEvent>
+				MobAggroFrame_OnEvent(self, event, ...);
+			</OnEvent>
+			<OnUpdate>
+				MobAggroFrame_OnUpdate(self, elapsed);
+			</OnUpdate>
+			<OnHide>
+				MobAggroFrame_OnHide();
+			</OnHide>
+		</Scripts>
+	</Button>
+	<Frame name="MobAggroWarningTextFrame" toplevel="true" parent="UIParent" hidden="true">
+		<Size>
+			<AbsDimension x="512" y="128"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UIParent" relativePoint="CENTER">
+				<Offset>
+				    <AbsDimension x="0" y="200"/>
+				</Offset>
+			</Anchor>
+		</Anchors>	
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="MobAggroWarningText" outline="THICK">
+                    <Size>
+                        <AbsDimension x="512" y="128"/>
+                    </Size>
+					<Anchors>
+						<Anchor point="CENTER"/> 
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="20"/>
+					</FontHeight>
+					<Color r="1" g="0.2" b="0"/>
+				</FontString>			
+			</Layer>
+		</Layers>		
+		<Scripts>
+			<OnLoad>
+				MobAggroWarningText:SetFont(MOB_AGGRO_FONT, 20);
+			</OnLoad>
+			<OnUpdate>
+				MobAggroWarningFrame_OnUpdate(self, elapsed);
+			</OnUpdate>
+			<OnShow>
+				MobAggroWarningFrame_OnShow();
+			</OnShow>
+			<OnHide>
+				MobAggroWarningFrame_OnHide();
+			</OnHide>
+		</Scripts>
+    </Frame>
+</Ui>

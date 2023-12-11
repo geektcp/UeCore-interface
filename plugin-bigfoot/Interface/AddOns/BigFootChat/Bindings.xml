@@ -1,0 +1,30 @@
+<Bindings>
+	<Binding name="BFCSAY" header="BFCTITLE">		
+		BFC_SetChatType("/s ")
+	</Binding>
+	<Binding name="BFCPARTYCHANNEL" >		
+		BFC_SetChatType("/p ")
+	</Binding>
+	<Binding name="BFCRAIDCHANNEL" >		
+		BFC_SetChatType("/raid ")
+	</Binding>
+	<Binding name="BFCBGCHANNEL" >		
+		BFC_SetChatType("/bg ")
+	</Binding>
+	<Binding name="BFCGUILDCHANNEL" >		
+		BFC_SetChatType("/g ")
+	</Binding>
+	<Binding name="BFCYELL" >		
+		BFC_SetChatType("/Y ")
+	</Binding>
+	<Binding name="BFCWHISPER" >		
+		BFC_SetChatType("/w ")
+	</Binding>
+	<Binding name="BFCOFFICER" >		
+		BFC_SetChatType("/o ")
+	</Binding>
+	<Binding name="BFBIGFOOTCHANNEL" >		
+		BFC_SetChatType()
+	</Binding>
+
+</Bindings>

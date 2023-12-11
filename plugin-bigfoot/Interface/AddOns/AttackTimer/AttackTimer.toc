@@ -1,0 +1,13 @@
+﻿## Interface: 30300
+## Title: [BF] AttackTimer
+## Title-zhCN: [KK魔兽]攻击计时
+## Title-zhTW: [大腳]攻擊計時
+## Notes: |cffbc8f8fDisplays a progress bar for your attack speed.|r
+## Notes-zhCN: |cff00ff00AttackTimer|r                                             |cffbc8f8f显示你的近战武器攻击的间隔时间。|r 
+## Notes-zhTW: |cff00ff00AttackTimer|r                                             |cffbc8f8f顯示你的近戰武器攻擊的間隔時間。|r
+## Author: 独孤傲雪
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+AttackTimer.xml

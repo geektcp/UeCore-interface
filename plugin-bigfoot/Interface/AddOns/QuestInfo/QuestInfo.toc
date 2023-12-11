@@ -1,0 +1,36 @@
+﻿## Interface: 30300
+## Title: QuestInfo
+## Title-zhCN: [KK魔兽][集]任务查询
+## Title-zhTW: [大腳][集]任务查询
+## Notes: |cffbc8f8fQuest library for mob location and other information|r
+## Notes-zhCN: |cff00ff00QuestInfo|r                                             |cffbc8f8f提供任务资料库。|r
+## Notes-zhTW: |cff00ff00QuestInfo|r                                             |cffbc8f8f提供任務資料庫功能。|r
+## Author: lahow (aka purple@bahamut)
+## SavedVariables: Cartographer_QuestInfoDB
+## OptionalDeps: Mapster
+## X-Category: Map
+## X-eMail: lahow DOT studio AT gmail DOT com
+## LoadOnDemand: 1
+## X-Revision:BigFoot
+
+Data\Quest.lua
+Data\NPC.lua
+Data\Zone.lua
+Data\Name-zhTW.lua
+Data\Name-zhCN.lua
+Data\Quest_EditAdd.lua
+
+Locale\Locale-enUS.lua
+Locale\Locale-zhTW.lua
+Locale\Locale-zhCN.lua
+
+Core.lua
+Notes.lua
+Map.lua
+LocationFrame.lua
+SeriesFrame.lua
+QuestFuPatch.lua
+QuestLogPatch.lua
+QuestPOI.xml
+Buttons.xml
+WatchButton.lua

@@ -1,0 +1,25 @@
+## Interface: 30300
+## Title: Mapster
+## Title-zhCN: [KK魔兽][集]地图专家
+## Title-zhTW: [大腳][集]地圖專家
+## Notes: |cffbc8f8fSimple Map Mod.|r
+## Notes-zhCN: |cff00ff00Mapster|r                                             |cffbc8f8f简单实用的地图模块。|r
+## Notes-zhTW: |cff00ff00Mapster|r                                             |cffbc8f8f簡單實用的地圖增強。|r
+## Author: Nevcairiel, Funkydude (Coords Module)
+## SavedVariables: MapsterDB3
+## X-Revision: BigFoot
+## X-Category: Map
+## Version: 1.3.9
+## X-License: All rights reserved.
+
+Locale\locale.xml
+
+Mapster.lua
+Config.lua
+
+Coords.lua
+GroupIcons.lua
+BattleMap.lua
+FogClear.lua
+InstanceMaps.lua
+Scaling.lua

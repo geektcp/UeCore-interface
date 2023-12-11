@@ -1,0 +1,23 @@
+## Interface: 30300
+## Title: EventAlert
+## Title-zhCN: [KK魔兽][集]自定义法术监视
+## Title-zhTW: [大腳][集]自定義法術監視
+## Notes: |cffbc8f8fConvenient to set any spell you want to monitor.Interface enhanced by ACDACD,Modified By Ever@BF.|r
+## Notes-zhCN: |cff00ff00EventAlert|r                                             |cffbc8f8f方便快捷的设置你想监视的任何法术。|r
+## Notes-zhTW: |cff00ff00EventAlert|r                                             |cffbc8f8f方便快捷的設置你想監視的任何法術。|r
+## Author: CurtisTheGreat(AIM),ACDACD (Special thanks: WoW UI Forums, Crast of the Pub) 
+## Version: 4.4.08a
+## SavedVariables: EA_Config, EA_Position, EA_Items, EA_AltItems, EA_TarItems
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+localization.lua
+localization.cn.lua
+localization.tw.lua
+
+EventAlert.xml
+EventAlert_Options.xml
+EventAlert_ClassAlerts.xml
+EventAlert_OtherAlerts.xml
+EventAlert_TargetAlerts.xml
+EventAlert_IconOptions.xml

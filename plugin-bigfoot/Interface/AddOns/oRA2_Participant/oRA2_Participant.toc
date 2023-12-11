@@ -1,0 +1,19 @@
+﻿## Interface: 30300
+## Title: oRA2 [Participant]
+## Title-zhCN: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r 参与者
+## Title-zhTW: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r 參與者
+## Notes: |cffbc8f8foRA2 Participant modules.|r
+## Notes-zhCN: |cff00ff00oRA2_Participant|r                                             |cffbc8f8f团队助手 参与者模块。|r
+## Notes-zhTW: |cff00ff00oRA2_Participant|r                                             |cffbc8f8f團隊助手 參與者模組。|r
+## Author: Ammo, Haste and Others
+## Version: 2.0
+## LoadOnDemand: 1
+## X-oRA-LoadWithCore: 1
+## Dependencies: oRA2
+## X-Revision: BigFoot
+
+Participant.lua
+Ready.lua
+RaidWarn.lua
+MainTank.lua
+Item.lua

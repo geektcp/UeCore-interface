@@ -1,0 +1,68 @@
+## Interface: 30300
+## X-Curse-Packaged-Version: 2.4.5-3-g6a02387
+## X-Curse-Project-Name: Decursive
+## X-Curse-Project-ID: decursive
+## X-Curse-Repository-ID: wow/decursive/mainline
+
+## Title: Decursive
+## Title-zhCN: [KK魔兽][集]一键驱散
+## Title-zhTW: [大腳][集]一鍵驅散
+## Notes: |cffbc8f8fAffliction display and cleaning for solo, group and raids with advanced filtering and priority system.|r
+## Notes-zhCN: |cff00ff00Decursive|r                                             |cffbc8f8f提供显示和清除负面效果的功能，并提供相应的高级过滤和优先级系统。|r
+## Notes-zhTW: |cff00ff00Decursive|r                                             |cffbc8f8f提供驅魔輔助功能，包含進階的顯示及過濾功能。|r
+
+## SavedVariables: DecursiveDB
+
+## Version: 2.4.5
+## Author: Archarodim
+## X-License: GNU GPL
+
+
+## X-License: All Rights Reserved
+
+## OptionalDeps: Ace3, CallbackHandler-1.0, LibQTip-1.0, LibDataBroker-1.1, LibDBIcon-1.0 
+
+## LoadManagers: AddonLoader
+## X-LoadOn-Class: Mage, Priest, Paladin, Druid, Hunter, Warlock, Shaman
+
+
+## X-Embeds: Ace3, LibStub, CallbackHandler-1.0, LibQTip-1.0, LibDataBroker-1.1, LibDBIcon-1.0
+
+## X-ReleaseDate: "2009-12-06T03:36:40Z"
+## X-Category: Combat
+## X-Website: http://www.2072productions.com/to/decursive.php
+## X-Credits: Sylvin (Full french translation), Peter Sun, Ananhaid (ZhTW and zhCN translation), Fenlis, Chkid (koKR translation), Hemathio, Swix (Russian Translation), Floyddotnet, Dessa, Farook (German translation)
+
+## X-AceForum: 4195
+
+## X-eMail: archarodim@teaser.fr
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+Dcr_DIAG.lua
+Dcr_DIAG.xml
+
+Localization\load.xml
+
+DCR_init.lua
+Dcr_LDB.lua
+Dcr_utils.lua
+
+
+Dcr_opt.lua
+Dcr_Events.lua
+
+Dcr_Raid.lua
+
+Decursive.lua
+Decursive.xml
+
+Dcr_lists.lua
+Dcr_lists.xml
+
+Dcr_DebuffsFrame.lua
+Dcr_DebuffsFrame.xml
+
+Dcr_LiveList.lua
+Dcr_LiveList.xml
+

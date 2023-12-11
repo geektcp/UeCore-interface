@@ -1,0 +1,21 @@
+﻿## Interface: 30300
+## Author: kunda,mod by Terry@bf
+## Title: <Grid> GridStatusRaidIconMod
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 团队图标
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 團隊圖標
+## Notes: |cffbc8f8fAdds Raid Target Icon status to Grid (Player or Player Target),Also does fading and marking.|r
+## Notes-zhTW: |cff00ff00GridStatusRaidIconMod|r                                             |cffbc8f8f在 Grid 添加团队目标状态或标记指定图标。|r
+## Notes-zhCN: |cff00ff00GridStatusRaidIconMod|r                                             |cffbc8f8f在 Grid 添加團隊目標狀態或標記指定圖標。|r
+## Version: 40000-2
+## Dependencies: Grid,BigFoot
+## X-Revision: BigFoot
+
+## LoadWith: Grid
+## LoadOnDemand: 1
+
+GridStatusRaidIcons-localization-enUS.lua
+GridStatusRaidIcons-localization-zhCN.lua
+GridStatusRaidIcons-localization-zhTW.lua
+
+GridStatusRaidIcon.lua
+GridStatusRaid.lua

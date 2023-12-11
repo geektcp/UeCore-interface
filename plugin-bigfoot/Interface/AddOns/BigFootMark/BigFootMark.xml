@@ -1,0 +1,133 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+<Script file = "locale.lua"/>
+<Script file = "BFMData.tw.lua"/>
+<Script file = "BFMData.cn.lua"/>
+<Script file = "BigFootMark.lua"/>
+
+
+	<Button name="MapMarkTemplate" hidden = "true" virtual ="true">
+		<Size>
+			<AbsDimension x="30" y="30"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Layers>
+		
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" file="Interface\AddOns\MapPlus\NodeNormal">
+					<Size>
+						<AbsDimension x="25" y="25"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 4);
+			</OnLoad>
+			<OnEnter>
+				MapMarkPoint_OnEnter(self);			
+			</OnEnter>
+			<OnLeave>
+				MapMarkPoint_OnLeave(self);
+			</OnLeave>
+		</Scripts>
+		<HighlightTexture alphaMode="ADD" file="Interface\AddOns\MapPlus\NodeHighlight"/>
+		
+	</Button>
+	
+	<Frame name = "MapPlusDDList" frameStrata="HIGH" inherits="UIDropDownMenuTemplate" parent= "WorldMapDetailFrame" hidden="true">
+		<Anchors>
+			<Anchor point="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="20	" y="-3"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 4);
+				UIDropDownMenu_SetWidth(self,100);
+				UIDropDownMenu_SetButtonWidth(self,120);
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<CheckButton name = "MapMarkCheckButton" frameStrata="HIGH" parent= "WorldMapDetailFrame" hidden="true">
+		<Size>
+			<AbsDimension x="22" y="22"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="-116" y="-8"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<NormalTexture file="Interface\Buttons\UI-CheckBox-Up">
+			<Size>
+				<AbsDimension x="24" y="28"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</NormalTexture>
+		<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</CheckedTexture>
+		<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 4);
+			</OnLoad>
+			<OnShow>
+				local checked = 	BigFootMarkDB.showMarks
+
+				self:SetChecked(checked)
+				MapMarkToggleEnable(self:GetChecked())
+			</OnShow>
+			<OnClick>
+				MapMarkToggleEnable(self:GetChecked())
+				BigFootMarkDB.showMarks = self:GetChecked()
+			</OnClick>
+		</Scripts>
+	</CheckButton>
+	
+	<GameTooltip name="BFMTooltip" frameStrata="HIGH" hidden="false" toplevel="true" parent="WorldMapFrame" inherits="GameTooltipTemplate">
+		<Scripts>
+			<OnLoad>
+				self:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b);
+				self:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b);
+				self:SetOwner(UIParent, "ANCHOR_NONE");
+			</OnLoad>
+		</Scripts>
+	</GameTooltip>
+</Ui>

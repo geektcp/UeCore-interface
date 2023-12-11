@@ -1,0 +1,23 @@
+﻿## Interface: 30300
+## Title: oRA2 [Optional]
+## Title-zhCN: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r 可选项
+## Title-zhTW: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r 可選項
+## Notes: |cffbc8f8foRA2 Optional modules.|r
+## Notes-zhCN: |cff00ff00oRA2_Optional|r                                             |cffbc8f8f团队助手 可选项模块。|r
+## Notes-zhTW: |cff00ff00oRA2_Optional|r                                             |cffbc8f8f團隊助手 可選項模組。|r
+## Author: Ammo, Haste and Others
+## Version: 2.0
+## LoadOnDemand: 1
+## X-oRA-LoadWithCore: 1
+## Dependencies: oRA2
+## X-Revision: BigFoot
+
+MainTank.xml
+MainTank.lua
+PlayerTarget.xml
+PlayerTarget.lua
+Resurrection.lua
+Zone.lua
+Version.lua
+CoolDown.lua
+Group.lua

@@ -1,0 +1,25 @@
+﻿## Interface: 30300
+## X-Compatible-With: 40000
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff0055FFCore|r
+## Title-zhCN: |cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff0055FF核心|r
+## Title-zhTW: |cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff0055FF核心|r
+## Notes: |cffbc8f8fDeadly Boss Mods.|r
+## Notes-zhCN: |cff00ff00DBM-Core|r                                             |cffbc8f8f首领报警。|r
+## Notes-zhTW: |cff00ff00DBM-Core|r                                             |cffbc8f8f首領報警。|r
+## SavedVariablesPerCharacter: DBM_SavedOptions, DBT_SavedOptions
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## Author: Tandanu and Nitram
+## X-Website: http://www.deadlybossmods.com
+
+localization.en.lua
+localization.cn.lua
+localization.tw.lua
+
+DBT-Template.xml
+DBT.lua
+DBM-Core.lua
+DBM-Arrow.lua
+DBM-RangeCheck.lua
+DBM-BossHealth.lua
+DBM-BossHealth.xml

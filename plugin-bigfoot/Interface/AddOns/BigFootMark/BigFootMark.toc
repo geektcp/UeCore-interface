@@ -1,0 +1,17 @@
+﻿## Interface: 30300
+## Title: [BF] NPC Mark
+## Title-zhCN: [KK魔兽]NPC标记
+## Title-zhTW: [大腳]NPC標記
+## Notes: |cffbc8f8fNPC Mark addon developed by 178.|r
+## Notes-zhCN: |cff00ff00BigFootMark|r                                             |cffbc8f8f艾泽拉斯国家地理自主开发的NPC标记。|r
+## Notes-zhTW: |cff00ff00BigFootMark|r                                             |cffbc8f8f艾澤拉斯國家地理自主開發的NPC標記。|r
+## Version: 0.1.4
+## Author: Terry
+## LoadOnDemand: 1
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## SavedVariables: BigFootMarkMappingDB
+## SavedVariablesPerCharacter: BigFootMarkDB
+
+BigFootMark.xml
+

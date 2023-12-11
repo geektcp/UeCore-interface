@@ -1,0 +1,23 @@
+﻿## Interface: 30300
+## Title: oRA2 [Leader]
+## Title-zhCN: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r 队长模块
+## Title-zhTW: |cffffe00a<|r|cffff7d0aoRA2|r|cffffe00a>|r 隊長模組
+## Notes: |cffbc8f8foRA2 Leader modules.|r
+## Notes-zhCN: |cff00ff00oRA2_Leader|r                                             |cffbc8f8f团队助手 队长模块。|r
+## Notes-zhTW: |cff00ff00oRA2_Leader|r                                             |cffbc8f8f團隊助手 隊長模組。|r
+## Author: Ammo, Haste and Others
+## Version: 2.0
+## LoadOnDemand: 1
+## X-oRA-LoadAsLeader: 1
+## Dependencies: oRA2
+## X-Revision: BigFoot
+
+Ready.lua
+MainTank.lua
+Item.lua
+Durability.lua
+Resist.lua
+Invite.lua
+RaidWarn.lua
+Loot.lua
+Latency.lua

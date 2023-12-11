@@ -1,0 +1,15 @@
+﻿## Interface: 30300
+## Title: [BF]BFMount
+## Title-zhCN: [KK魔兽]骑乘增强
+## Title-zhTW: [大腳]騎乘增強
+## Notes: |cffbc8f8fMounting enhance addon developed by 178.|r
+## Notes-zhCN: |cff00ff00BFMount|r                                             |cffbc8f8f178自主研发的骑乘增强插件。|r
+## Notes-zhTW: |cff00ff00BFMount|r                                             |cffbc8f8f178自主研發的騎乘增強插件。|r
+## Author: Terry
+## Version: 0.1
+## Dependencies: BigFoot
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## SavedVariablesPerCharacter: BFMountDB
+
+frame.xml

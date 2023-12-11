@@ -1,0 +1,13 @@
+﻿## Interface: 30300
+## Title: Combuctor Config
+## Title-zhCN: [KK魔兽][集]背包整合配置
+## Title-zhTW: [大腳][集]背包整合配置
+## Notes: |cffbc8f8fAn options menu for Combuctor.|r
+## Notes-zhCN: |cff00ff00Combuctor_Config|r                                             |cffbc8f8f背包整合配置模块。|r
+## Notes-zhTW: |cff00ff00Combuctor_Config|r                                             |cffbc8f8f背包整合配置模塊。|r
+## Author: Tuller
+## Dependencies: Combuctor, BigFoot
+## X-Revision: BigFoot
+
+panel.lua
+general.lua

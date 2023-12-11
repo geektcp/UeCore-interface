@@ -1,0 +1,24 @@
+﻿## Interface: 30300 
+## Title: Clique
+## Title-zhCN: [KK魔兽][集]一键施法
+## Title-zhTW: [大腳][集]一鍵施法
+## Notes: |cffbc8f8fSimply powerful click-casting interface.|r
+## Notes-zhCN: |cff00ff00Clique|r                                             |cffbc8f8f简单而强大的点击施法工具。|r
+## Notes-zhTW: |cff00ff00Clique|r                                             |cffbc8f8f簡單而強大的點擊施法工具。|r
+## Author: Cladhaire
+## Version: 108
+## SavedVariables: CliqueDB
+## OptionalDeps: Dongle
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+
+Dongle.lua
+Clique.xml
+Clique.lua
+Localization.enUS.lua
+Localization.zhCN.lua
+Localization.zhTW.lua
+
+
+CliqueOptions.lua
+CliqueUtils.lua

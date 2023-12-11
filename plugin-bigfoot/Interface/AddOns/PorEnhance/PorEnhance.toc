@@ -1,0 +1,13 @@
+﻿## Interface: 30300
+## Title: [BF] Portrait Enhancement
+## Title-zhCN: [KK魔兽]头像增强
+## Title-zhTW: [大腳]頭像增強
+## Notes: |cffbc8f8fShow extra information nearby portrait.|r                                             Runtime: |cff00ff00Low|r                                             Memory: |cff00ff00Low|r
+## Notes-zhCN: |cff00ff00PorEnhance|r                                             |cffbc8f8f在头像旁边显示额外的数值信息如百分比。|r                                             运行时间占用率：|cff00ff00低|r                                             内存占用率：|cff00ff00低|r
+## Notes-zhTW: |cff00ff00PorEnhance|r                                             |cffbc8f8f在頭像旁邊顯示額外的數值信息如百分比。|r                                             運行時間占用率：|cff00ff00低|r                                             記憶体佔用率：|cff00ff00低|r
+## Dependencies: BigFoot
+## OptionalDeps: BuffMaster
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+PorEnhance.xml

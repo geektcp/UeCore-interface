@@ -1,0 +1,30 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+<Script file="libs\LibStub\LibStub.lua"/>
+<Include file="libs\CallbackHandler-1.0\CallbackHandler-1.0.xml"/>
+<Include file="libs\AceAddon-3.0\AceAddon-3.0.xml"/>
+<Include file="libs\AceDB-3.0\AceDB-3.0.xml"/>
+<Include file="libs\AceGUI-3.0\AceGUI-3.0.xml"/>
+<Include file="libs\AceConfig-3.0\AceConfig-3.0.xml"/>
+<Include file="libs\AceEvent-3.0\AceEvent-3.0.xml"/>
+<Include file="libs\AceHook-3.0\AceHook-3.0.xml"/>
+<Include file="libs\AceLocale-3.0\AceLocale-3.0.xml"/>
+
+<Include file="libs\LibBabble-Boss-3.0\lib.xml"/>
+<Include file="libs\LibBabble-Zone-3.0\lib.xml"/>
+<Include file="libs\LibBabble-Class-3.0\lib.xml"/>
+
+<script file="libs\LibPeriodicTable-3.1\LibPeriodicTable-3.1.lua"/>
+<script file="libs\LibPeriodicTable-3.1-Consumable\LibPeriodicTable-3.1-Consumable.lua"/>
+<script file="libs\LibPeriodicTable-3.1-CurrencyItems\LibPeriodicTable-3.1-CurrencyItems.lua"/>
+<script file="libs\LibPeriodicTable-3.1-Gear\LibPeriodicTable-3.1-Gear.lua"/>
+<script file="libs\LibPeriodicTable-3.1-GearSet\LibPeriodicTable-3.1-GearSet.lua"/>
+<script file="libs\LibPeriodicTable-3.1-InstanceLoot\LibPeriodicTable-3.1-InstanceLoot.lua"/>
+<script file="libs\LibPeriodicTable-3.1-InstanceLootHeroic\LibPeriodicTable-3.1-InstanceLootHeroic.lua"/>
+<script file="libs\LibPeriodicTable-3.1-Misc\LibPeriodicTable-3.1-Misc.lua"/>
+<script file="libs\LibPeriodicTable-3.1-Reputation\LibPeriodicTable-3.1-Reputation.lua"/>
+<script file="libs\LibPeriodicTable-3.1-Tradeskill\LibPeriodicTable-3.1-Tradeskill.lua"/>
+<script file="libs\LibPeriodicTable-3.1-TradeskillResultMats\LibPeriodicTable-3.1-TradeskillResultMats.lua"/>
+
+</Ui>

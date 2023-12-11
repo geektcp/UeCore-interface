@@ -1,0 +1,239 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="EventAlert_TargetAlerts.lua"/>
+
+<Frame name="EA_Target_Events_Frame" toplevel="true" frameStrata="HIGH" movable="true" enableMouse="true" hidden="true" parent="EA_Options_Frame" enableKeyboard="true">
+
+        <Size>
+            <AbsDimension x="325" y="500"/>
+        </Size>
+
+        <Anchors>
+			<Anchor point="LEFT" relativepoint="RIGHT"/>
+        </Anchors>
+
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+                    <Size>
+                        <AbsDimension x="500" y="64"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOP">
+                            <Offset>
+                                <AbsDimension x="0" y="12"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+
+                <FontString inherits="GameFontNormal" text="EA_OPTIONS_Target">
+                    <Anchors>
+                        <Anchor point="TOP" relativeTo="$parent_Header">
+                            <Offset>
+                                <AbsDimension x="0" y="-14"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString name="$parent_SpellText" inherits="GameFontNormal" text="">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="$parent">
+                            <Offset>
+                                <!-- <AbsDimension x="-120" y="105"/> -->
+                                <AbsDimension x="-120" y="21"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString name="$parent_HelpText1" inherits="GameFontNormal" text="">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="$parent">
+                            <Offset>
+                                <AbsDimension x="0" y="85"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString name="$parent_HelpText2" inherits="GameFontNormal" text="">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="$parent">
+                            <Offset>
+                                <AbsDimension x="0" y="65"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+                <FontString name="$parent_HelpText3" inherits="GameFontNormal" text="">
+                    <Anchors>
+                        <Anchor point="Bottom" relativeTo="$parent">
+                            <Offset>
+                                <AbsDimension x="0" y="35"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <Frames>
+        	<CheckButton name="$parent_Target_MyDebuff" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent">
+                        <Offset>
+                            <AbsDimension x="20" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_XTARALERT_TARGET_MYDEBUFF);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.Target_MyDebuff = true;
+                        else
+                            EA_Config.Target_MyDebuff = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_TARGET_MYDEBUFF);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+			<!-- <EditBox name="$parent_EditBox" letters="41" multiLine="false" ignoreArrows="false" autoFocus="false">
+				<Size>
+					<AbsDimension x="330" y="20" />
+				</Size>
+		        <Anchors>
+		        	<Anchor point="BOTTOM" relativeTo="$parent">
+		            	<Offset>
+		                	<AbsDimension x="15" y="15"/>
+		                </Offset>
+		            </Anchor>
+	    	    </Anchors>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox> -->
+			<EditBox name="$parent_SpellEditBox" letters="5" multiLine="false" numeric="true" ignoreArrows="false" autoFocus="false">
+				<Size>
+					<AbsDimension x="50" y="25" />
+				</Size>
+		        <Anchors>
+		        	<Anchor point="BOTTOM" relativeTo="$parent">
+		            	<Offset>
+		                	<!-- <AbsDimension x="-50" y="100"/> -->
+		                	<AbsDimension x="-50" y="16"/>
+		                </Offset>
+		            </Anchor>
+	    	    </Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Size>
+								<AbsDimension x="40" y="25"></AbsDimension>
+							</Size>
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="-10" y="0"></AbsDimension>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0" right="0.2" top="0" bottom="1.0"></TexCoords>
+						</Texture>
+						<Texture file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Size>
+								<AbsDimension x="40" y="25"></AbsDimension>
+							</Size>
+							<Anchors>
+								<Anchor point="RIGHT">
+									<Offset>
+										<AbsDimension x="10" y="0"></AbsDimension>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0.7" right="1.0" top="0" bottom="1.0"></TexCoords>
+						</Texture>
+					</Layer>
+				</Layers>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox>
+	        <Button name="$parent_AddSpell" inherits="OptionsButtonTemplate" text="">
+	        	<Anchors>
+	    	        <Anchor point="BOTTOM" relativeTo="$parent">
+			            <Offset>
+			        		<!-- <AbsDimension x="25" y="100"/> --> 
+			        		<AbsDimension x="25" y="16"/>
+				        </Offset>
+			        </Anchor>
+		        </Anchors>
+		        <Size>
+					<AbsDimension x="75" y="25"/>
+		        </Size>
+		        <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EX_XCLSALERT_ADDSPELL);
+                    </OnLoad>
+		            <OnClick>
+						EventAlert_Target_Events_Frame_AddSpell();
+		            </OnClick>
+	            </Scripts>
+	        </Button>
+	        <Button name="$parent_DelSpell" inherits="OptionsButtonTemplate" text="">
+	        	<Anchors>
+	    	        <Anchor point="BOTTOM" relativeTo="$parent">
+			            <Offset>
+			        		<!-- <AbsDimension x="103" y="100"/> -->
+			        		<AbsDimension x="103" y="16"/>
+				        </Offset>
+			        </Anchor>
+		        </Anchors>
+		        <Size>
+					<AbsDimension x="75" y="25"/>
+		        </Size>
+		        <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EX_XCLSALERT_DELSPELL);
+                    </OnLoad>
+		            <OnClick>
+						EventAlert_Target_Events_Frame_DelSpell();
+		            </OnClick>
+	            </Scripts>
+	        </Button>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+	            this:RegisterForDrag("LeftButton");
+                EventAlert_Target_Events_Frame_OnLoad();
+            </OnLoad>
+        	<OnMouseDown>
+	        	EventAlert_Target_Events_Frame_MouseDown(button);
+	      	</OnMouseDown>
+	      	<OnMouseUp>
+	        	EventAlert_Target_Events_Frame_MouseUp(button);
+	      	</OnMouseUp>
+        </Scripts>
+</Frame>
+</Ui>

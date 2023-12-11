@@ -1,0 +1,29 @@
+﻿## Interface: 30300
+## X-Compatible-With: 40000
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r World Events
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 世界事件
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 世界事件
+## Notes-zhCN: |cff00ff00DBM-WorldEvents|r
+## Notes-zhTW: |cff00ff00DBM-WorldEvents|r
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## RequiredDeps: DBM-Core
+## SavedVariablesPerCharacter: DBMWorldEvents_SavedVars, DBMWorldEvents_SavedStats
+## X-DBM-Mod: 1
+## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-Name: World Events
+## X-DBM-Mod-Name-zhTW: 世界事件
+## X-DBM-Mod-Name-zhCN: 世界事件
+## X-DBM-Mod-Sort: 250
+## X-DBM-Mod-LoadZone: Blackrock Depths,Scarlet Monastery,Shadowfang Keep,The Slave Pens
+## X-DBM-Mod-LoadZone-zhTW: 黑石深淵,血色修道院,影牙城堡,奴隸監獄
+## X-DBM-Mod-LoadZone-zhCN: 黑石深渊,血色修道院,影牙城堡,奴隶围栏
+
+localization.en.lua
+localization.cn.lua
+localization.tw.lua
+
+ApothecaryTrio.lua
+Ahune.lua
+CorenDirebrew.lua
+HeadlessHorseman.lua

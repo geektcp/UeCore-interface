@@ -1,0 +1,21 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="RepairHelper.lua"/>
+	<Frame name="RepairHelperFrame" toplevel="true" parent="UIParent" movable="true" enableMouse="true" hidden="true">
+		<Scripts>
+			<OnLoad>
+				RepairHelper_OnLoad(self);
+			</OnLoad>
+			<OnEvent>
+				RepairHelper_OnEvent(self, event, ...);
+			</OnEvent>
+		</Scripts>
+	</Frame>
+	<GameTooltip name="RepairHelperTooltip" frameStrata="TOOLTIP" hidden="false" inherits="GameTooltipTemplate">
+		<Scripts>
+			<OnLoad>
+				self:SetOwner(UIParent, "ANCHOR_NONE");
+			</OnLoad>
+		</Scripts>
+	</GameTooltip>
+</Ui>

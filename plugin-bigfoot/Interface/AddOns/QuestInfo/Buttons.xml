@@ -1,0 +1,311 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
+	<Button name="CQI_StartButton" parent="QuestLogDetailScrollChildFrame" hidden="true">
+		<Size>
+			<AbsDimension x="16" y="16"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="QuestLogDetailScrollChildFrame" relativePoint="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="-35" y="-5"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\GossipFrame\AvailableQuestIcon">
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<NormalTexture>
+			<Size>
+				<AbsDimension x="16" y="16"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</NormalTexture>
+		<HighlightTexture alphaMode="ADD" file="Interface\QuestFrame\UI-QuestTitleHighlight">
+			<Size>
+				<AbsDimension x="16" y="16"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+			<OnClick>
+				Cartographer_QuestInfo:OnButtonClick(self, arg1);
+			</OnClick>
+			<OnEnter>
+				Cartographer_QuestInfo:OnButtonTooltip(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_Tooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Button name="CQI_EndButton" parent="QuestLogDetailScrollChildFrame" hidden="true">
+		<Size>
+			<AbsDimension x="16" y="16"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="QuestLogDetailScrollChildFrame" relativePoint="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="-19" y="-5"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\GossipFrame\ActiveQuestIcon">
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<NormalTexture>
+			<Size>
+				<AbsDimension x="16" y="16"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</NormalTexture>
+		<HighlightTexture alphaMode="ADD" file="Interface\QuestFrame\UI-QuestTitleHighlight">
+			<Size>
+				<AbsDimension x="16" y="16"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+			<OnClick>
+				Cartographer_QuestInfo:OnButtonClick(self, arg1);
+			</OnClick>
+			<OnEnter>
+				Cartographer_QuestInfo:OnButtonTooltip(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_Tooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Button name="CQI_InfoButton" parent="QuestLogDetailScrollChildFrame" hidden="true">
+		<Size>
+			<AbsDimension x="16" y="16"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="QuestLogDetailScrollChildFrame" relativePoint="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="-3" y="-5"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\GossipFrame\BinderGossipIcon">
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<NormalTexture>
+			<Size>
+				<AbsDimension x="16" y="16"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</NormalTexture>
+		<HighlightTexture alphaMode="ADD" file="Interface\QuestFrame\UI-QuestTitleHighlight">
+			<Size>
+				<AbsDimension x="16" y="16"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+			<OnClick>
+				Cartographer_QuestInfo:OnInfoClick(self, arg1);
+			</OnClick>
+			<OnEnter>
+				Cartographer_QuestInfo:OnInfoEnter(self);
+			</OnEnter>
+			<OnLeave>
+				Cartographer_QuestInfo:OnInfoLeave(self);
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Button name="CQI_ObjButtonTemplate" hidden="true" virtual="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\TUTORIALFRAME\TutorialFrame-QuestionMark">
+					<Size>
+						<AbsDimension x="24" y="24"/>
+					</Size>
+					<Anchors>
+						<Anchor point="RIGHT">
+							<Offset>
+								<AbsDimension x="-1" y="-1"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<NormalTexture>
+			<Size>
+				<AbsDimension x="275" y="14"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</NormalTexture>
+		<HighlightTexture alphaMode="ADD" file="Interface\QuestFrame\UI-QuestTitleHighlight">
+			<Size>
+				<AbsDimension x="275" y="14"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativePoint="CENTER"/>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+			<OnClick>
+				Cartographer_QuestInfo:OnButtonClick(self, arg1);
+			</OnClick>
+			<OnEnter>
+				Cartographer_QuestInfo:OnButtonTooltip(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_Tooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Button name="CQI_ObjButton1" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="1"/>
+	<Button name="CQI_ObjButton2" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="2"/>
+	<Button name="CQI_ObjButton3" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="3"/>
+	<Button name="CQI_ObjButton4" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="4"/>
+	<Button name="CQI_ObjButton5" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="5"/>
+	<Button name="CQI_ObjButton6" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="6"/>
+	<Button name="CQI_ObjButton7" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="7"/>
+	<Button name="CQI_ObjButton8" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="8"/>
+	<Button name="CQI_ObjButton9" inherits="CQI_ObjButtonTemplate" parent="QuestLogDetailScrollChildFrame" id="9"/>
+
+	<!-- 可接任务查询 -->
+	<Button name="CQI_MapButton1" parent="WorldMapButton" frameStrata="HIGH" id="1">
+		<Size><AbsDimension x="32" y="32"/></Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="-6" y="-35"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>
+				CQI_MapButton_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_MapButton_OnLeave(self);
+			</OnLeave>
+			<OnClick>
+				CQI_MapButton_OnClick(self);
+			</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\AddOns\QuestInfo\Artwork\kejie_Up"/>
+		<HighlightTexture file="Interface\Buttons\CancelButton-Highlight" setAllPoints="true" alphaMode="ADD"/>
+		<PushedTexture file="Interface\AddOns\QuestInfo\Artwork\kejie_Down"/>
+	</Button>
+
+	<!-- 进行中任务查询 -->
+	<Button name="CQI_MapButton2" parent="WorldMapButton" frameStrata="HIGH" id="2">
+		<Size><AbsDimension x="32" y="32"/></Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="CQI_MapButton1" relativePoint="BOTTOMRIGHT">
+				<Offset>
+					<AbsDimension x="0" y="-4"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>
+				CQI_MapButton_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_MapButton_OnLeave(self);
+			</OnLeave>
+			<OnClick>
+				CQI_MapButton_OnClick(self);
+			</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\AddOns\QuestInfo\Artwork\jinxing_Up"/>
+		<HighlightTexture file="Interface\Buttons\CancelButton-Highlight" setAllPoints="true" alphaMode="ADD"/>
+		<PushedTexture file="Interface\AddOns\QuestInfo\Artwork\jinxing_Down"/>
+	</Button>
+
+	<!-- 追踪任务查询 -->
+	<Button name="CQI_MapButton3" parent="WorldMapButton" frameStrata="HIGH" id="3">
+		<Size><AbsDimension x="32" y="32"/></Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="CQI_MapButton2" relativePoint="BOTTOMRIGHT">
+				<Offset>
+					<AbsDimension x="0" y="-4"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>
+				CQI_MapButton_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_MapButton_OnLeave(self);
+			</OnLeave>
+			<OnClick>
+				CQI_MapButton_OnClick(self);
+			</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\AddOns\QuestInfo\Artwork\zhuizong_Up"/>
+		<HighlightTexture file="Interface\Buttons\CancelButton-Highlight" setAllPoints="true" alphaMode="ADD"/>
+		<PushedTexture file="Interface\AddOns\QuestInfo\Artwork\zhuizong_Down"/>
+	</Button>
+
+	<!-- 删除任务标记 -->
+	<Button name="CQI_MapButton4" parent="WorldMapButton" frameStrata="HIGH" id="4">
+		<Size><AbsDimension x="32" y="32"/></Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="CQI_MapButton3" relativePoint="BOTTOMRIGHT">
+				<Offset>
+					<AbsDimension x="0" y="-4"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>
+				CQI_MapButton_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				CQI_MapButton_OnLeave(self);
+			</OnLeave>
+			<OnClick>
+				CQI_MapButton_OnClick(self);
+			</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\AddOns\QuestInfo\Artwork\delete_Up"/>
+		<HighlightTexture file="Interface\Buttons\CancelButton-Highlight" setAllPoints="true" alphaMode="ADD"/>
+		<PushedTexture file="Interface\AddOns\QuestInfo\Artwork\delete_Down"/>
+	</Button>
+
+	<GameTooltip name="CQI_Tooltip" inherits="GameTooltipTemplate" parent="UIParent" hidden="true"/>
+</Ui>

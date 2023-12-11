@@ -1,0 +1,35 @@
+﻿## Interface: 30300
+## X-Compatible-With: 40000 
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r PvP
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 竞技模块
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 競技模塊
+## Notes-zhCN: |cff00ff00DBM-PvP|r
+## Notes-zhTW: |cff00ff00DBM-PvP|r
+## Author: Nitram/Tandanu
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## RequiredDeps: DBM-Core
+## SavedVariablesPerCharacter: DBMPvP_SavedVars
+## X-DBM-Mod: 1
+## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-SubCategories: Arena,Battlegrounds
+## X-DBM-Mod-SubCategories-zhTW: 競技場,戰場
+## X-DBM-Mod-SubCategories-zhCN: 竞技场,战场
+## X-DBM-Mod-Name: PvP
+## X-DBM-Mod-Name-zhTW: PvP
+## X-DBM-Mod-Name-zhCN: PvP
+## X-DBM-Mod-Sort: 275
+## X-DBM-Mod-LoadZoneID: 462,444,402,541,483
+
+localization.en.lua
+localization.tw.lua
+localization.cn.lua
+
+Battlegrounds\Battlegrounds.lua
+Battlegrounds\Alterac.lua
+Battlegrounds\Arathi.lua
+Battlegrounds\EyeOfTheStorm.lua
+Battlegrounds\IsleOfConquest.lua
+Battlegrounds\Warsong.lua
+
+Arenas\Arenas.lua

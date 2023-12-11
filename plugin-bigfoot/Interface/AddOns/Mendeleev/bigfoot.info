@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
+    <AddOn name="物品出处及用途显示Mendeleev" displayName="物品出处及用途显示Mendeleev" img="/data/wow/51/ui_logo.jpg" info="ui/51" package="down/51/424/Mendeleev-r294.zip" update="2010-04-13" version="r294" />
+</AddOnList>

@@ -1,0 +1,25 @@
+﻿## Interface: 30300
+## Title: <Grid> Raid Debuff WotLK
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 减益法术(WLK)
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 減益法術(WLK)
+## Notes: |cffbc8f8fDebuff List for Wrath of the Lich King.|r
+## Notes-zhTW: |cff00ff00GridStatusRD_WotLK|r                                          |cffbc8f8f提供WLK 可能出现的Debuff|r
+## Notes-zhCN: |cff00ff00GridStatusRD_WotLK|r                                          |cffbc8f8f提供WLK 可能出現的Debuff|r
+## Author: Azelkeeber
+## Version: 1.0
+## Dependencies: GridStatusRaidDebuff
+## OptionalDeps: Ace2
+## X-Curse-Packaged-Version: r245
+## X-Curse-Project-Name: GridStatusRaidDebuff
+## X-Curse-Project-ID: grid-status-raid-debuff
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+## LoadWith: Grid
+
+Naxxramas.lua
+Sartharion.lua
+Malygos.lua
+Ulduar.lua
+Coliseum.lua
+Archavon.lua
+IcecrownCitadel.lua

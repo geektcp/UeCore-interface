@@ -1,0 +1,231 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="EventAlertIconOptions.lua"/>
+
+    <Frame name="EA_Icon_Options_Frame" toplevel="true" frameStrata="HIGH" movable="true" enableMouse="true" hidden="true" parent="EA_Options_Frame" enableKeyboard="true">
+
+        <Size>
+            <AbsDimension x="300" y="325"/>
+        </Size>
+
+        <Anchors>
+			<Anchor point="LEFT" relativepoint="RIGHT"/>
+        </Anchors>
+
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+
+        <Layers>
+
+            <Layer level="ARTWORK">
+
+                <Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+                    <Size>
+                        <AbsDimension x="400" y="64"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOP">
+                            <Offset>
+                                <AbsDimension x="0" y="12"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+
+                <FontString inherits="GameFontNormal" text="EA_ICON_POSITION_OPTION">
+                    <Anchors>
+                        <Anchor point="TOP" relativeTo="EA_Icon_Options_Frame_Header">
+                            <Offset>
+                                <AbsDimension x="0" y="-14"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+            </Layer>
+
+        </Layers>
+
+        <Frames>
+
+        	<CheckButton name="$parent_LockFrame" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset>
+                            <AbsDimension x="50" y="-40"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_LOCK_FRAME);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.LockFrame = true;
+                        else
+                            EA_Config.LockFrame = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_LOCKFRAME);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+
+			<Slider name="$parent_IconSize" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOP" relativePoint="CENTER">
+                        <Offset>
+                            <AbsDimension x="0" y="60"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_ICON_SIZE);
+                        getglobal(this:GetName().."High"):SetText(EA_LARGE);
+                        getglobal(this:GetName().."Low"):SetText(EA_SMALL);
+                        this:SetMinMaxValues(30.0,90.0);
+                        this:SetValueStep(30.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Config.IconSize = this:GetValue();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONSIZE);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Slider name="$parent_IconXOffset" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconSize" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+
+                        getglobal(this:GetName().."Text"):SetText(EA_HORIZON_SPACING);
+                        getglobal(this:GetName().."High"):SetText(EA_MORE);
+                        getglobal(this:GetName().."Low"):SetText(EA_LESS);
+                        this:SetMinMaxValues(-200.0,200.0);
+                        this:SetValueStep(1.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.xOffset = this:GetValue();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONXOFFSET);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Slider name="$parent_IconYOffset" inherits="OptionsSliderTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_IconXOffset" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_VERTICAL_SPACING);
+                        getglobal(this:GetName().."High"):SetText(EA_MORE);
+                        getglobal(this:GetName().."Low"):SetText(EA_LESS);
+                        this:SetMinMaxValues(-200.0,200.0);
+                        this:SetValueStep(1.0);
+                    </OnLoad>
+                    <OnValueChanged>
+                        EA_Position.yOffset = this:GetValue();
+                    </OnValueChanged>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_CENTER");
+                        GameTooltip:SetText(EA_TTIP_ICONYOFFSET);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Slider>
+
+            <Button name="$parent_ToggleAlertFrame" inherits="OptionsButtonTemplate" text="EA_TOGGLE_ALERT_FRAME">
+                <Anchors>
+                    <Anchor point="CENTER" relativePoint="BOTTOM">
+                        <Offset>
+                            <AbsDimension x="0" y="50"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="175" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        EventAlert_Options_ToggleAlertFrame();
+                    </OnClick>
+                </Scripts>
+            </Button>
+
+            <Button name="$parent_ResetAlertPosition" inherits="OptionsButtonTemplate" text="EA_RESET_FRAME_POS">
+                <Anchors>
+                    <Anchor point="CENTER" relativeTo="$parent_ToggleAlertFrame" relativePoint="BOTTOM">
+                        <Offset>
+                            <AbsDimension x="0" y="-15"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="150" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        EventAlert_Options_ResetFrame();
+                    </OnClick>
+                </Scripts>
+            </Button>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+	            this:RegisterForDrag("LeftButton");
+                EA_Icon_Options_OnLoad();
+            </OnLoad>
+        	<OnMouseDown>
+	        	EA_Icon_Options_Frame_MouseDown(button);
+	      	</OnMouseDown>
+	      	<OnMouseUp>
+	        	EA_Icon_Options_Frame_MouseUp(button);
+	      	</OnMouseUp>
+        </Scripts>
+</Frame>
+
+</Ui>

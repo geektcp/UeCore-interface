@@ -1,0 +1,14 @@
+﻿## Interface: 30300
+## Title: [BF] MyFocusFrame
+## Title-zhCN: [KK魔兽]焦点目标
+## Title-zhTW: [大腳]焦點目標
+## Notes: |cffbc8f8fA movable frame like TargetFrame to show your focus.|r
+## Notes-zhCN: |cff00ff00MyFocusFrame|r                                             |cffbc8f8f显示焦点目标的头像。|r
+## Notes-zhTW: |cff00ff00MyFocusFrame|r                                             |cffbc8f8f顯示焦點目標的頭像。|r
+## Version: 2.3.6
+## Author: Tageshi
+## SavedVariables: MyFocusFrameOptions
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+
+MyFocusFrame.xml

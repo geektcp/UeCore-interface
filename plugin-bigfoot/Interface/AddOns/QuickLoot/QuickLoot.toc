@@ -1,0 +1,12 @@
+﻿## Interface: 30300
+## Title: [BF] Quick Loot
+## Title-zhCN: [KK魔兽]快速拾取
+## Title-zhTW: [大腳]快速拾取
+## Notes: |cffbc8f8fShow loot window on the position of your mouse.|r                                             Runtime: |cff00ff00Low|r                                             Memory: |cff00ff00Low|r
+## Notes-zhCN: |cff00ff00QuickLoot|r                                             |cffbc8f8f当你拾取物品时拾取窗口跟随你鼠标的位置移动。|r                                             运行时间占用率：|cff00ff00低|r                                             内存占用率：|cff00ff00低|r
+## Notes-zhTW: |cff00ff00QuickLoot|r                                             |cffbc8f8f當你拾取物品時拾取窗口跟隨你鼠標的位置移動。|r                                             運行時間占用率：|cff00ff00低|r                                             記憶体佔用率：|cff00ff00低|r
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 0
+
+QuickLoot.xml

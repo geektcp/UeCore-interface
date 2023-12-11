@@ -1,0 +1,46 @@
+﻿## Interface: 30300
+## Title: Mendeleev
+## Version: 3.0
+## Notes: Adds various information based on PeriodicTable to item tooltips.
+## Notes-deDE: Fügt Informationen basiernd auf PeriodicTable zu Gegenstands-Tooltips hinzu.
+## Notes-esES: Añade información a los tooltip de objeto basándose en PeriodicTable.
+## Notes-frFR: Ajoute diverses informations basées sur PeriodicTable aux bulles d'aide des objets.
+## Notes-koKR: 아이템 툴팁 정보 추가 애드온
+## Notes-ruRU: Добавляет в подсказки предметов различную информацию, основанную на PeriodicTable.
+## Notes-zhCN: 在提示中显示物品的详细信息，包括掉落位置、声望要求、用途等。基于 PeriodicTable。
+## Notes-zhTW: 在提示中顯示物品的詳細資訊，包括掉落位置、聲望要求、用途等。基於 PeriodicTable。
+## Author: Rabbit
+## X-Credits: MoonWolf for the orginal PT1-based version, Kemayo, Elkano, Nymbia (PT3).
+## OptionalDeps: Ace3, LibBabble-Boss-3.0, LibBabble-Zone-3.0, LibBabble-Class-3.0, LibPeriodicTable-3.1, AtlasLoot
+## X-Category: Inventory
+## SavedVariables: MendeleevDB
+## X-Email: rabbit.magtheridon@gmail.com
+## X-Curse-Packaged-Version: r294
+## X-Curse-Project-Name: Mendeleev
+## X-Curse-Project-ID: mendeleev
+## X-Curse-Repository-ID: wow/mendeleev/mainline
+
+## X-Revision: 294
+## X-Date: 2010-03-10T20:15:13Z
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+locales\enUS.lua
+locales\deDE.lua
+locales\esES.lua
+locales\frFR.lua
+locales\koKR.lua
+locales\ruRU.lua
+locales\zhCN.lua
+locales\zhTW.lua
+
+Sets.lua
+SetsGear.lua
+Set_Instances_Classic_low.lua
+Set_Instances_Classic_high.lua
+Set_Instances_BC.lua
+Set_Instances_WotLK.lua
+Mendeleev.lua
+

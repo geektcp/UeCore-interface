@@ -1,0 +1,20 @@
+﻿## Interface: 30300
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 0Options GUI
+## Title-zhCN: |cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 设置界面
+## Title-zhTW: |cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 使用者界面設定
+## Notes-zhCN: |cff00ff00DBM-GUI|r
+## Notes-zhTW: |cff00ff00DBM-GUI|r
+## RequiredDeps: DBM-Core
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## Author: Nitram and Tandanu
+## URL: http://www.deadlybossmods.com
+
+localization.en.lua
+localization.cn.lua
+localization.tw.lua
+
+DBM-GUI_DropDown.xml
+DBM-GUI_Templates.xml
+DBM-GUI.lua
+DBM-GUI_DropDown.lua

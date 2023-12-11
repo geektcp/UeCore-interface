@@ -1,0 +1,18 @@
+﻿## Interface: 30300
+## Title: <Grid> Status Hots
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 增益法术
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 增益法術
+## Notes: |cffbc8f8fSeparate indicator for your HoTs with timer.|r
+## Notes-zhTW: |cff00ff00GridStatusHots|r                                             |cffbc8f8f在 Grid 添加团队增益状态提示。|r
+## Notes-zhCN: |cff00ff00GridStatusHots|r                                             |cffbc8f8f在 Grid 添加團隊增益狀態提示。|r
+## Author: Bogenlampe, shadmar, Veridiac
+## Version: 3.22b1
+## X-Website: http://wowace.com/wiki/Grid
+## X-Category: UnitFrame
+## X-GridStatusModule: GridStatusHots
+## X-Revision: BigFoot
+## LoadWith: Grid
+## LoadOnDemand: 1
+
+GridStatusHots_locale.lua
+GridStatusHots.lua

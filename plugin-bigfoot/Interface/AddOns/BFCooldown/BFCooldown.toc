@@ -1,0 +1,14 @@
+﻿## Interface: 30300
+## Title: [BF]BFCooldown
+## Title-zhCN: [KK魔兽]冷却增强
+## Title-zhTW: [大腳]冷卻增強
+## Notes: |cffbc8f8fCooldown watcher developed by 178.|r
+## Notes-zhCN: |cff00ff00BFCooldown|r                                             |cffbc8f8f冷却监控插件。|r
+## Notes-zhTW: |cff00ff00BFCooldown|r                                             |cffbc8f8f冷卻監控插件。|r
+## Author: Terry
+## Version: 0.2
+## X-Revision: BigFoot
+## Dependencies: BigFoot
+## SaveVariables: BFCooldownDB
+
+BFCooldown.xml

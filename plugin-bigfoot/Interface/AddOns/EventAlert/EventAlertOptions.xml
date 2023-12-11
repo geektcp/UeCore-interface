@@ -1,0 +1,405 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="EventAlertOptions.lua"/>
+
+    <Frame name="EA_Options_Frame" toplevel="true" frameStrata="DIALOG" movable="true" enableMouse="true" hidden="true" parent="UIParent" enableKeyboard="true">
+
+        <Size>
+            <AbsDimension x="300" y="450"/>
+        </Size>
+
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+
+        <Layers>
+
+            <Layer level="ARTWORK">
+
+                <Texture name="$parent_Header" file="Interface\DialogFrame\UI-DialogBox-Header">
+                    <Size>
+                        <AbsDimension x="300" y="64"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOP">
+                            <Offset>
+                                <AbsDimension x="0" y="12"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+
+                <FontString name="$parent_Header_Text" inherits="GameFontNormal" text="">
+                    <Anchors>
+                        <Anchor point="TOP" relativeTo="EA_Options_Frame_Header">
+                            <Offset>
+                                <AbsDimension x="0" y="-14"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+
+            </Layer>
+
+        </Layers>
+
+        <Frames>
+
+            <Button name="$parent_ToggleIconOptions" inherits="OptionsButtonTemplate" text="EA_ICON_POSITION_OPTION">
+                <Anchors>
+                    <Anchor point="TOP">
+                        <Offset>
+                            <AbsDimension x="0" y="-40"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="165" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        EventAlert_Options_ToggleIconOptionsFrame();
+                    </OnClick>
+                </Scripts>
+            </Button>
+
+        	<CheckButton name="$parent_ShowFrame" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset>
+                            <AbsDimension x="50" y="-80"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_SHOW_ALERT_FRAME);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.ShowFrame = true;
+                        else
+                            EA_Config.ShowFrame = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_SHOWFRAME);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+        	<CheckButton name="$parent_ShowName" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_ShowFrame" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_SHOW_BUFF );
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.ShowName = true;
+                        else
+                            EA_Config.ShowName = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_SHOWNAME);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+            <CheckButton name="$parent_ShowTimer" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_ShowName" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_SHOW_TIMER);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.ShowTimer = true;
+                        else
+                            EA_Config.ShowTimer = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_SHOWTIMER);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+            <CheckButton name="$parent_ChangeTimer" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_ShowTimer" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="20" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_MIMIC_OMNICC);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.ChangeTimer = true;
+                        else
+                            EA_Config.ChangeTimer = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_CHANGETIMER);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+
+        	<CheckButton name="$parent_ShowFlash" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_ShowTimer" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_SHOW_FS_FLASH);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.ShowFlash = true;
+                        else
+                            EA_Config.ShowFlash = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_SHOWFLASH);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+            <CheckButton name="$parent_DoAlertSound" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_ShowFlash" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_PLAY_SOUND);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.DoAlertSound = true;
+                        else
+                            EA_Config.DoAlertSound = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_DOALERTSOUND);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+            <CheckButton name="$parent_AlertSoundSelect" inherits="UIDropDownMenuTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_DoAlertSound" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="10" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                    	EventAlert_Options_AlertSoundSelect_OnLoad();
+                    </OnLoad>
+					<OnShow>
+                    	EventAlert_Options_AlertSoundSelect_OnLoad();
+                    </OnShow>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_ALERTSOUNDSELECT);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+
+            <CheckButton name="$parent_AllowESC" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_DoAlertSound" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="-50"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_ESC_CLOSE_ALERT);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.AllowESC = true;
+                        else
+                            EA_Config.AllowESC = false;
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_ALLOWESC);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+        	<CheckButton name="$parent_AltAlerts" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent_AllowESC" relativePoint="BOTTOMLEFT">
+                        <Offset>
+                            <AbsDimension x="0" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        getglobal(this:GetName().."Text"):SetText(EA_ENABLE_ALT_ALERTS);
+                    </OnLoad>
+                    <OnClick>
+                        if (this:GetChecked()) then
+                            EA_Config.AllowAltAlerts = true;
+                            if (Class_Events_Frame:IsVisible()) then
+	                            Alt_Alerts_Frame:Show();
+                            end
+                         else
+                            EA_Config.AllowAltAlerts = false;
+							Alt_Alerts_Frame:Hide();
+                        end
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(EA_TTIP_ALTALERTS);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </CheckButton>
+
+            <Button name="$parent_ToggleClassEvents" inherits="OptionsButtonTemplate" text="EA_TOGGLE_CLASS_FRAME">
+                <Anchors>
+                    <Anchor point="BOTTOM">
+                        <Offset>
+                            <AbsDimension x="0" y="75"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="175" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        EventAlert_Options_ToggleClassEventsFrame();
+                    </OnClick>
+                </Scripts>
+            </Button>
+
+            <Button name="$parent_Okay" inherits="OptionsButtonTemplate" text="EA_OKAY">
+                <Anchors>
+                    <Anchor point="BOTTOMRIGHT">
+                        <Offset>
+                            <AbsDimension x="-15" y="16"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Size>
+		            <AbsDimension x="75" y="21"/>
+        		</Size>
+                <Scripts>
+                    <OnClick>
+                        PlaySound("gsTitleOptionOK");
+                        HideUIPanel(EA_Options_Frame);
+                        EA_Anchor_Frame:Hide();
+                        EA_Anchor_Frame2:Hide();
+                        EA_Anchor_Frame3:Hide();
+                    </OnClick>
+                </Scripts>
+            </Button>
+
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+	            this:RegisterForDrag("LeftButton");
+                EventAlert_Options_OnLoad();
+            </OnLoad>
+        	<OnMouseDown>
+	        	EventAlert_Options_MouseDown(button);
+	      	</OnMouseDown>
+	      	<OnMouseUp>
+	        	EventAlert_Options_MouseUp(button);
+	      	</OnMouseUp>
+			<OnHide>
+				EA_Anchor_Frame:Hide();
+				EA_Anchor_Frame2:Hide();
+				EA_Anchor_Frame3:Hide();
+			</OnHide>
+        </Scripts>
+
+    </Frame>
+
+</Ui>

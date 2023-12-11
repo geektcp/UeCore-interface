@@ -1,0 +1,18 @@
+﻿## Interface: 30300
+## Title: Marking Helper
+## Title-zhCN: [KK魔兽][集]标记助手
+## Title-zhTW: [大腳][集]標記助手
+## Notes: |cffbc8f8fTeam leader can double-click to mark a target.|r
+## Notes-zhCN: |cff00ff00ezIcons|r                                             |cffbc8f8f队长双击标记目标。|r
+## Notes-zhTW: |cff00ff00ezIcons|r                                             |cffbc8f8f隊長雙擊標記目標。|r
+## Author: Rhaene
+## Translator: Terry@bf
+## LoadOnDemand: 1
+## SavedVariables: ezIconsDB, ezIconsDBPC
+## X-Revision: BigFoot
+
+locale\locale.en.lua
+locale\locale.tw.lua
+locale\locale.cn.lua
+
+ezIcons.lua

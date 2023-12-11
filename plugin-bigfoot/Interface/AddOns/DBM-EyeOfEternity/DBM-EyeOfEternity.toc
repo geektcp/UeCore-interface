@@ -1,0 +1,26 @@
+﻿## Interface: 30300
+## X-Compatible-With: 40000 
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r Eye of Eternity
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 永恒之眼
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 永恆之眼
+## Notes-zhCN: |cff00ff00DBM-EyeOfEternity|r
+## Notes-zhTW: |cff00ff00DBM-EyeOfEternity|r
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+## RequiredDeps: DBM-Core
+## SavedVariablesPerCharacter: DBMEyeOfEternity_SavedVars, DBMEyeOfEternity_SavedStats
+## X-DBM-Mod: 1
+## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-Has-Heroic-Mode: 0
+## X-DBM-Mod-Name: Eye of Eternity
+## X-DBM-Mod-Name-zhTW: 永恆之眼
+## X-DBM-Mod-Name-zhCN: 永恒之眼
+## X-DBM-Mod-Sort: 205
+## X-DBM-Mod-LoadZoneID: 528
+
+localization.en.lua
+localization.cn.lua
+localization.tw.lua
+
+MapSizes.lua
+Malygos.lua

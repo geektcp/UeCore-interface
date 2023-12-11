@@ -1,0 +1,21 @@
+﻿## Interface: 30300
+## Title: <Grid> Mana Bars
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 法力条
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 法力條
+## Notes: |cffbc8f8fAdds manabars to the sides of Grid frames.|r
+## Notes-zhTW: |cff00ff00GridManaBars|r                                             |cffbc8f8f在 Grid 框架旁邊顯示法力條。|r
+## Notes-zhCN: |cff00ff00GridManaBars|r                                             |cffbc8f8f在 Grid 框体内设置法力条。|r
+## Author: Adelea, Julith
+## Version: 1.0
+## X-Website: http://wowace.com/wiki/Grid
+## Dependencies: Grid
+## OptionalDeps: Ace2
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+## LoadWith: Grid
+
+GMBLocale-enUS.lua
+GMBLocale-zhCN.lua
+GMBLocale-zhTW.lua
+GridManaBar.lua
+GridStatusMana.lua

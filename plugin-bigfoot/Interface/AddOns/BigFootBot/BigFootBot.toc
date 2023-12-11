@@ -1,0 +1,12 @@
+﻿## Interface: 30300
+## Title: [BF]BigFootBot
+## Title-zhCN: [KK魔兽]信息收集
+## Title-zhTW: [大腳]信息收集
+## Notes: |cffbc8f8fAllow user to collect data in game and upload to server to share with other players.|r                                             Runtime: |cff00ff00Low|r                                             Memory: |cffffff00Normal|r.
+## Notes-zhCN: |cff00ff00BigFootBot|r                                             |cffbc8f8f允许用户收集游戏中的数据并上传到服务器上与他人共享。|r                                             运行时间占用率：|cff00ff00低|r                                             内存占用率：|cffffff00中|r
+## Notes-zhTW: |cff00ff00BigFootBot|r                                             |cffbc8f8f允許用戶收集遊戲中的數據並上傳到服務器上與他人共享。|r                                             運行時間占用率：|cff00ff00低|r                                             記憶体佔用率：|cffffff00中|r
+## Dependencies: BigFoot
+## SavedVariables: ItemSourceDB, ObjectLocationDB, CreatureLocationDB, CreatureDB, QuestDB, QuestCompleteDB, QuestEventDB, SkillSourceDB, BigFootBot_Version, BigFootBot_Info, PlayersDB, BigFoot_Error
+## X-Revision: BigFoot
+
+BigFootBot.xml

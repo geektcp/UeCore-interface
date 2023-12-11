@@ -1,0 +1,13 @@
+﻿## Interface: 30300
+## Title: [BF] Mob Aggro
+## Title-zhCN: [KK魔兽]怪物目标
+## Title-zhTW: [大腳]怪物目標
+## Notes: |cffbc8f8fShow player's target's target and give some alerts.|r                                             Runtime: |cff00ff00Low|r                                             Memory: |cff00ff00Low|r
+## Notes-zhCN: |cff00ff00MobAggro|r                                             |cffbc8f8f显示玩家的目标的目标并给与适当的警告。|r                                             运行时间占用率：|cff00ff00低|r                                             内存占用率：|cff00ff00低|r
+## Notes-zhTW: |cff00ff00MobAggro|r                                             |cffbc8f8f顯示玩家的目標的目標並給與適當的警告。|r                                             運行時間佔用率：|cff00ff00低|r                                             記憶體佔用率：|cff00ff00低|r
+## Dependencies: BigFoot
+## SavedVariables: MobAggro_Config
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+
+MobAggro.xml

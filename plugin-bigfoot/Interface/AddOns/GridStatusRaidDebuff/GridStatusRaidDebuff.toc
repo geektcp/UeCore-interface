@@ -1,0 +1,20 @@
+﻿## Interface: 30300
+## Title: <Grid> Raid Debuff
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 减益法术
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 減益法術
+## Notes: |cffbc8f8fAdds a status to Grid for debuffs applied by Raid Bosses.|r
+## Notes-zhTW: |cff00ff00GridStatusRaidDebuff|r                                             |cffbc8f8f在 Grid 添加团队减益状态提示。|r
+## Notes-zhCN: |cff00ff00GridStatusRaidDebuff|r                                             |cffbc8f8f在 Grid 添加團隊減益狀態提示。|r
+## Author: Azelkeeber,Toadkiller
+## X-Revision: BigFoot
+## Version: v3.01
+## Dependencies: Grid
+## OptionalDeps: Ace2, LibBabble-Zone-3.0, LibBabble-Boss-3.0
+## X-Category: UnitFrame
+## X-GridStatusModule: GridStatusRaidDebuff
+## X-Curse-Packaged-Version: r245
+## LoadWith: Grid
+## LoadOnDemand: 1
+
+embeds.xml
+Core.lua

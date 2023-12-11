@@ -1,0 +1,25 @@
+﻿## Interface: 30300
+## Title: Rating Buster
+## Title-zhCN: [KK魔兽][集]装备比较
+## Title-zhTW: [大腳][集]裝備比較
+## Notes: |cffbc8f8fItem stat breakdown, analysis and comparison.|r
+## Notes-zhCN: |cff00ff00RatingBuster|r                                             |cffbc8f8f装备数值分析与比较。|r
+## Notes-zhTW: |cff00ff00RatingBuster|r                                             |cffbc8f8f裝備數值解析與比較。|r
+## Author: Whitetooth
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+## Dependencies: BigFoot
+## SavedVariables: RatingBusterDB
+## OptionalDeps: Ace3, LibTipHooker-1.1, LibStatLogic-1.1, UTF8, LibBabble-Inventory-3.0, LibDualSpec-1.0, TankPoints
+
+######################
+# Localization Files #
+######################
+RatingBuster-Locale-enUS.lua
+RatingBuster-Locale-zhCN.lua
+RatingBuster-Locale-zhTW.lua
+
+########
+# Core #
+########
+RatingBuster.lua

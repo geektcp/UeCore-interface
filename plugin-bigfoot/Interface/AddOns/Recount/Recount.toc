@@ -1,0 +1,55 @@
+﻿## Interface: 30300
+## Title: Recount
+## Title-zhCN: |cffffe00a<|r|cffff7d0aRecount|r|cffffe00a>|r |cff0055FF伤害统计|r
+## Title-zhTW: |cffffe00a<|r|cffff7d0aRecount|r|cffffe00a>|r |cff0055FF傷害統計|r
+## Notes: |cffbc8f8fRecords Damage and Healing for Graph Based Display.|r
+## Notes-zhCN: |cff00ff00Recount|r                                             |cffbc8f8f图形化显示的伤害/治疗统计插件。|r
+## Notes-zhTW: |cff00ff00Recount|r                                             |cffbc8f8f圖形化顯示的傷害/治療統計插件。|r
+## Author: Cryect,Elsia
+## OptionalDeps:  Ace3, LibSharedMedia-3.0, LibBossIDs-1.0, LibGraph-2.0, !ClassColors
+## SavedVariables: RecountDB
+## SavedVariablesPerCharacter: RecountPerCharDB
+## X-Category: Combat
+## X-Curse-Packaged-Version: r1093
+## X-Curse-Project-Name: Recount
+## X-Curse-Project-ID: recount
+## X-Curse-Repository-ID: wow/recount/mainline
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+
+locales\Recount-enUS.lua
+locales\Recount-zhTW.lua
+locales\Recount-zhCN.lua
+
+Recount.lua
+Fonts.lua
+colors.lua
+Widgets.lua
+WindowOrder.lua
+Fights.lua
+Recount_Modes.lua
+
+TrackerModules\TrackerModule_Dispels.lua
+TrackerModules\TrackerModule_Interrupts.lua
+TrackerModules\TrackerModule_Resurrection.lua
+TrackerModules\TrackerModule_CCBreakers.lua
+TrackerModules\TrackerModule_PowerGains.lua
+
+Tracker.lua
+roster.lua
+LazySync.lua
+deletion.lua
+zonefilters.lua
+debug.lua
+
+GUI_Main.lua
+GUI_Detail.lua
+GUI_DeathGraph.lua
+GUI_Graph.lua
+GUI_Reset.lua
+GUI_Report.lua
+GUI_Config.lua
+GUI_Realtime.lua
+
+BFRecount.lua
+GuessedAbsorbs_Mode.lua

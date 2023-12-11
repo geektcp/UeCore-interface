@@ -1,0 +1,21 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="ChatEnhance.lua"/>
+	<Frame name="ScrollChatFrameTemplate" movable="true" setAllPoints="true" virtual="true">
+	  <Scripts>
+			<OnShow>
+				ScrollChatFrame_OnShow(self)
+			</OnShow>
+			<OnMouseWheel>
+				ScrollChatFrame_OnMouseWheel(self, delta)
+			</OnMouseWheel>
+		</Scripts>
+	</Frame>
+	<Frame name="ScrollChatFrame1" inherits="ScrollChatFrameTemplate" parent="ChatFrame1"/>
+	<Frame name="ScrollChatFrame2" inherits="ScrollChatFrameTemplate" parent="ChatFrame2"/>
+	<Frame name="ScrollChatFrame3" inherits="ScrollChatFrameTemplate" parent="ChatFrame3"/>
+	<Frame name="ScrollChatFrame4" inherits="ScrollChatFrameTemplate" parent="ChatFrame4"/>
+	<Frame name="ScrollChatFrame5" inherits="ScrollChatFrameTemplate" parent="ChatFrame5"/>
+	<Frame name="ScrollChatFrame6" inherits="ScrollChatFrameTemplate" parent="ChatFrame6"/>
+	<Frame name="ScrollChatFrame7" inherits="ScrollChatFrameTemplate" parent="ChatFrame7"/>
+</Ui>

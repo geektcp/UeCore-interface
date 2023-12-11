@@ -1,0 +1,617 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="MapPlus.lua"/>
+
+	<FontString name="MapPlusFontNormal" inherits="ChatFontNormal" virtual="true">
+		<FontHeight>
+			<AbsValue val="12"/>
+		</FontHeight>
+		<Color r="1.0" g="0.82" b="0"/>
+	</FontString>
+
+	<Button name="MapNotePointTemplate" hidden="true" virtual="true">
+		<Size>
+			<AbsDimension x="16" y="16"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" file="Interface\AddOns\MapPlus\NodeNormal" setAllPoints="true"/>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 1);
+				self:RegisterForClicks("LeftButtonUp");
+			</OnLoad>
+			<OnClick>
+				MapNode_OnClick(self, button);
+			</OnClick>
+			<OnEnter>
+				MapNotePoint_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				MapNotePoint_OnLeave(self);
+			</OnLeave>
+			<OnUpdate>
+				MapNotePoint_OnUpdate(self, elapsed);
+			</OnUpdate>
+		</Scripts>
+		<HighlightTexture alphaMode="ADD" file="Interface\AddOns\MapPlus\NodeHighlight"/>
+	</Button>
+
+	<CheckButton name="MapNodeIconTemplate" hidden="false" virtual="true">
+		<Size>
+			<AbsDimension x="16" y="16"/>
+		</Size>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" file="Interface\AddOns\MapPlus\NodeNormal" setAllPoints="true"/>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(10);
+				MapNodeIcon_OnLoad(self);
+			</OnLoad>
+			<OnClick>
+				MapNodeIconButton_OnClick(self, button);
+			</OnClick>
+		</Scripts>
+		<HighlightTexture alphaMode="ADD" file="Interface\AddOns\MapPlus\NodeHighlight"/>
+		<CheckedTexture alphaMode="ADD" file="Interface\AddOns\MapPlus\NodeChecked"/>
+	</CheckButton>
+
+	<Button name="MapPlusButtonTemplate" inherits="UIPanelButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="90" y="23"/>
+		</Size>
+		<OnShow>
+			self:SetFrameLevel(self:GetParent():GetFrameLevel()+1);
+		</OnShow>
+	</Button>
+
+	<Frame name="MapPlusEditFrame" toplevel="true" hidden="true" parent="WorldMapFrame" movable="true" enableMouse="true" enableKeyboard="true" frameStrata="HIGH">
+		<Size>
+			<AbsDimension x="256" y="256"/>
+		</Size>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="256" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="12"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<FontString name="MapPlusEditHeader" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="$parentHeader">
+							<Offset>
+								<AbsDimension x="0" y="-14"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="MapPlusButtonOk" inherits="MapPlusButtonTemplate">
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="22" y="24"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						self:SetText(MAPPLUS_OK);
+					</OnLoad>
+					<OnClick>
+						MapPlusButtonOk_OnClick(self, button);
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="MapPlusButtonCancel" inherits="MapPlusButtonTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="MapPlusButtonOk" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						self:SetText(MAPPLUS_CANCEL);
+					</OnLoad>
+					<OnClick>
+						MapPlusButtonCancel_OnClick(self, button);
+					</OnClick>
+				</Scripts>
+			</Button>
+			<EditBox name="MapPlusTitleEditBox" letters="256" historyLines="0" autoFocus="false">
+				<Size>
+					<AbsDimension x="170" y="20"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="65" y="-32"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="MapPlusTitleStatic" inherits="MapPlusFontNormal" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="RIGHT" relativePoint="LEFT">
+									<Offset>
+										<AbsDimension x="-12" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<Texture name="$parentLeft" file="Interface\Common\Common-Input-Border">
+							<Size>
+								<AbsDimension x="8" y="20"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT">
+									<Offset>
+										<AbsDimension x="-8" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0" right="0.0625" top="0" bottom="0.625"/>
+						</Texture>
+						<Texture name="$parentMiddle" file="Interface\Common\Common-Input-Border">
+							<Size>
+								<AbsDimension x="150" y="20"/>
+							</Size>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+							</Anchors>
+							<TexCoords left="0.0625" right="0.9375" top="0" bottom="0.625"/>
+						</Texture>
+						<Texture name="$parentRight" file="Interface\Common\Common-Input-Border">
+							<Size>
+								<AbsDimension x="8" y="20"/>
+							</Size>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentMiddle" relativePoint="RIGHT"/>
+							</Anchors>
+							<TexCoords left="0.9375" right="1.0" top="0" bottom="0.625"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						self:SetFrameLevel(self:GetParent():GetFrameLevel()+1);
+					</OnLoad>
+					<OnTabPressed>
+						MapPlusNoteEditBox:SetFocus();
+					</OnTabPressed>
+					<OnEditFocusLost>
+						self:HighlightText(0, 0);
+					</OnEditFocusLost>
+					<OnEditFocusGained>
+						self:HighlightText(0, -1);
+					</OnEditFocusGained>
+					<OnEnterPressed>
+						MapPlusNoteEditBox:SetFocus();
+					</OnEnterPressed>
+					<OnEscapePressed>
+						MapPlusButtonCancel_OnClick(self);
+					</OnEscapePressed>
+					<OnTextChanged>
+						MapPlusTitleEditBox_Check(self);
+					</OnTextChanged>
+				</Scripts>
+				<FontString inherits="ChatFontNormal"/>
+			</EditBox>
+			<ScrollFrame name="MapPlusEditScrollFrame" inherits="UIPanelScrollFrameTemplate">
+				<Size>
+					<AbsDimension x="172" y="85"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="MapPlusTitleEditBox" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="-38" y="-28"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="MapPlusNoteStatic" inherits="MapPlusFontNormal" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="BOTTOMRIGHT" relativePoint="TOPLEFT">
+									<Offset>
+										<AbsDimension x="26" y="10"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<ScrollChild>
+					<EditBox name="MapPlusNoteEditBox" multiLine="true" letters="120" autoFocus="false">
+						<Size>
+							<AbsDimension x="171" y="85"/>
+						</Size>
+						<Scripts>
+							<OnLoad>
+								self:SetFrameLevel(10);
+							</OnLoad>
+							<OnTextChanged>
+								local scrollBar = getglobal(self:GetParent():GetName().."ScrollBar")
+								self:GetParent():UpdateScrollChildRect();
+								local min;
+								local max;
+								min, max = scrollBar:GetMinMaxValues();
+								if ( max > 0 and (self.max ~= max) ) then
+									self.max = max;
+									scrollBar:SetValue(max);
+								end
+							</OnTextChanged>
+							<OnEscapePressed>
+								MapPlusButtonCancel_OnClick();
+							</OnEscapePressed>
+							<OnEditFocusGained>
+								self:HighlightText(0, -1);
+							</OnEditFocusGained>
+							<OnEditFocusLost>
+								self:HighlightText(0, 0);
+							</OnEditFocusLost>
+						</Scripts>
+						<FontString inherits="ChatFontNormal"/>
+					</EditBox>
+				</ScrollChild>
+				<Scripts>
+					<OnLoad>
+						self:SetFrameLevel(self:GetParent():GetFrameLevel()+1);
+					</OnLoad>
+				</Scripts>
+			</ScrollFrame>
+			<Frame name="MapPlusTextBackground">
+				<Size>
+					<AbsDimension x="206" y="95"/>
+				</Size>
+<!--
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture file="Interface\AddOns\MapPlus\back1">
+							<Size>
+								<AbsDimension x="206" y="95"/>
+							</Size>
+							<TexCoords left="0.0" right="0.8046875" top="0" bottom="0.7421875"/>
+						</Texture>
+					</Layer>
+				</Layers>
+-->
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="MapPlusEditFrame">
+						<Offset>
+							<AbsDimension x="20" y="-75"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<EdgeSize>
+						<AbsValue val="16"/>
+					</EdgeSize>
+					<TileSize>
+						<AbsValue val="16"/>
+					</TileSize>
+					<BackgroundInsets>
+						<AbsInset left="5" right="5" top="5" bottom="5"/>
+					</BackgroundInsets>
+				</Backdrop>
+				<Scripts>
+					<OnLoad>
+						self:SetFrameLevel(self:GetParent():GetFrameLevel()+1);
+						self:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b);
+						self:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b);
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<Frame name="MapPlusIconTitle">
+				<Size>
+					<AbsDimension x="50" y="20"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="MapPlusTextBackground" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="5" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="MapPlusIconStatic" inherits="MapPlusFontNormal" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset>
+										<AbsDimension x="0" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						self:SetFrameLevel(self:GetParent():GetFrameLevel()+1);
+						MapPlusIconStatic:SetText(MAPPLUS_ICON_STATIC);
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<CheckButton name="MapPlusIconButton1" inherits="MapNodeIconTemplate" id="1">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="MapPlusIconTitle" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="38" y="2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="MapPlusIconButton2" inherits="MapNodeIconTemplate" id="2">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="MapPlusIconButton1"/>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="MapPlusIconButton3" inherits="MapNodeIconTemplate" id="3">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="MapPlusIconButton2"/>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="MapPlusIconButton4" inherits="MapNodeIconTemplate" id="4">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="MapPlusIconButton3"/>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="MapPlusIconButton5" inherits="MapNodeIconTemplate" id="5">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="MapPlusIconButton4"/>
+				</Anchors>
+			</CheckButton>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				MapPlusEditHeader:SetText(MAPPLUS_HEADER_TEXT);
+				MapPlusTitleStatic:SetText(MAPPLUS_TITLE_STATIC);
+				MapPlusNoteStatic:SetText(MAPPLUS_NOTE_STATIC);
+			</OnLoad>
+			<OnKeyDown>
+				if ( key == "ESCAPE" ) then
+					MapPlusButtonCancel_OnClick(self);
+				end
+			</OnKeyDown>
+		</Scripts>
+	</Frame>
+	
+	<Frame name="MapPlusFrame" setAllPoints="true" frameStrata="MEDIUM" parent="WorldMapFrame">
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="MapCoordinateText" justifyH="LEFT" inherits="MapPlusFontNormal" text="">
+					<Size>
+						<AbsDimension x="132" y="48"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="WorldMapPositioningGuide" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="10" y="-24"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				MapPlus_OnLoad(self);
+			</OnLoad>
+			<OnUpdate>
+				MapPlus_OnUpdate(self);
+			</OnUpdate>
+			<OnHide>
+				MapPlus_OnHide(self);
+			</OnHide>
+		</Scripts>
+	</Frame>
+	<Frame name="NodeDropDown" inherits="BDropDownMenuTemplate" parent="WorldMapFrame" id="3" hidden="true">
+		<Anchors>
+			<Anchor point="TOP" relativePoint="TOP" relativeTo="WorldMapPositioningGuide">
+				<Offset>
+					<AbsDimension x="-250" y="200"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString inherits="GameFontNormalSmall" text="">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				NodeDropDown_OnLoad(self);
+			</OnLoad>
+			<OnShow>
+				NodeDropDown_OnLoad(self);
+			</OnShow>
+		</Scripts>
+	</Frame>
+	<EditBox name="NoteEditBox" toplevel="true" ignoreArrows="true" historyLines="32" letters="255" hidden="true" parent="WorldMapFrame">
+		<Size>
+			<AbsDimension x="256" y="32"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="WorldMapFrame" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="100" y="-100"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentLeft" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+					<Size>
+						<AbsDimension x="256" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRight" file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+					<Size>
+						<AbsDimension x="16" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+					</Anchors>
+					<TexCoords left="0.9375" right="1.0" top="0" bottom="1.0"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentHeader" inherits="ChatFontNormal" text="Note: ">
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="13" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel()+1);
+			</OnLoad>
+			<OnShow>
+				self:SetTextInsets(15 + NoteEditBoxHeader:GetWidth(), 13, 0, 0);
+			</OnShow>
+			<OnHide>
+				NoteEdit_OnHide(self);
+			</OnHide>
+			<OnUpdate>
+			</OnUpdate>
+			<OnEnterPressed>
+				NoteEdit_OnTextEnterPressed(self);
+			</OnEnterPressed>
+			<OnEscapePressed>
+				NoteEdit_OnEscapePressed(self);
+			</OnEscapePressed>
+			<OnSpacePressed>
+			</OnSpacePressed>
+			<OnTabPressed>
+			</OnTabPressed>
+			<OnTextChanged>
+				NoteEdit_OnTextChanged(self);
+			</OnTextChanged>
+			<OnTextSet>
+			</OnTextSet>
+			<OnInputLanguageChanged>
+			</OnInputLanguageChanged>
+		</Scripts>
+		<FontString inherits="ChatFontNormal" bytes="256"/>
+	</EditBox>
+
+	<Button name="MapNote1" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="1"/>
+	<Button name="MapNote2" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="2"/>
+	<Button name="MapNote3" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="3"/>
+	<Button name="MapNote4" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="4"/>
+	<Button name="MapNote5" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="5"/>
+	<Button name="MapNote6" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="6"/>
+	<Button name="MapNote7" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="7"/>
+	<Button name="MapNote8" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="8"/>
+	<Button name="MapNote9" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="9"/>
+	<Button name="MapNote10" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="10"/>
+	<Button name="MapNote11" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="11"/>
+	<Button name="MapNote12" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="12"/>
+	<Button name="MapNote13" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="13"/>
+	<Button name="MapNote14" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="14"/>
+	<Button name="MapNote15" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="15"/>
+	<Button name="MapNote16" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="16"/>
+	<Button name="MapNote17" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="17"/>
+	<Button name="MapNote18" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="18"/>
+	<Button name="MapNote19" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="19"/>
+	<Button name="MapNote20" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="20"/>
+	<Button name="MapNote21" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="21"/>
+	<Button name="MapNote22" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="22"/>
+	<Button name="MapNote23" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="23"/>
+	<Button name="MapNote24" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="24"/>
+	<Button name="MapNote25" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="25"/>
+	<Button name="MapNote26" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="26"/>
+	<Button name="MapNote27" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="27"/>
+	<Button name="MapNote28" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="28"/>
+	<Button name="MapNote29" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="29"/>
+	<Button name="MapNote30" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="30"/>
+	<Button name="MapNote31" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="31"/>
+	<Button name="MapNote32" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="32"/>
+	<Button name="MapNote33" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="33"/>
+	<Button name="MapNote34" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="34"/>
+	<Button name="MapNote35" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="35"/>
+	<Button name="MapNote36" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="36"/>
+	<Button name="MapNote37" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="37"/>
+	<Button name="MapNote38" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="38"/>
+	<Button name="MapNote39" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="39"/>
+	<Button name="MapNote40" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="40"/>
+	<Button name="MapNote41" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="41"/>
+	<Button name="MapNote42" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="42"/>
+	<Button name="MapNote43" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="43"/>
+	<Button name="MapNote44" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="44"/>
+	<Button name="MapNote45" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="45"/>
+	<Button name="MapNote46" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="46"/>
+	<Button name="MapNote47" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="47"/>
+	<Button name="MapNote48" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="48"/>
+	<Button name="MapNote49" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="49"/>
+	<Button name="MapNote50" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="50"/>
+	<Button name="MapNote51" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="51"/>
+	<Button name="MapNote52" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="52"/>
+	<Button name="MapNote53" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="53"/>
+	<Button name="MapNote54" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="54"/>
+	<Button name="MapNote55" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="55"/>
+	<Button name="MapNote56" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="56"/>
+	<Button name="MapNote57" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="57"/>
+	<Button name="MapNote58" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="58"/>
+	<Button name="MapNote59" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="59"/>
+	<Button name="MapNote60" inherits="MapNotePointTemplate" parent="WorldMapDetailFrame" id="60"/>
+
+	<GameTooltip name="MapPlusTooltip" frameStrata="HIGH" hidden="false" toplevel="true" parent="WorldMapFrame" inherits="GameTooltipTemplate">
+		<Scripts>
+			<OnLoad>
+				self:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b);
+				self:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b);
+				self:SetOwner(UIParent, "ANCHOR_NONE");
+			</OnLoad>
+		</Scripts>
+	</GameTooltip>
+
+</Ui>

@@ -1,0 +1,40 @@
+## Interface: 30300
+## Title: Grid
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r |cff0055FF核心|r
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r |cff0055FF核心|r
+## Notes: |cffbc8f8fA modular, lightweight and screen-estate saving grid of party/raid unit frames.|r
+## Notes-zhCN: |cff00ff00Grid|r                                             |cffbc8f8f小巧的轻量级模块化队伍框架。|r
+## Notes-zhTW: |cff00ff00Grid|r                                             |cffbc8f8f精簡的團隊框架功能。|r
+## Author: Pastamancer and Maia
+## X-AceForum: 2525
+## X-Category: UnitFrame
+## X-RelSite-Curse: 9503
+## X-RelSite-WoWI: 5747
+## X-Website: https://warmane.cn
+## SavedVariables: GridDB
+## DefaultState: enabled
+## LoadOnDemand: 1
+## X-Revision: BigFoot
+
+Locales\GridLocale-zhCN.lua
+Locales\GridLocale-zhTW.lua
+
+GridCore.lua
+GridLDB.lua
+GridRoster.lua
+GridRange.lua
+GridLayout.lua
+GridLayoutLayouts.lua
+GridFrame.lua
+GridStatus.lua
+GridStatusAggro.lua
+GridStatusAuras.lua
+GridStatusHeals.lua
+GridStatusHealth.lua
+GridStatusMana.lua
+GridStatusName.lua
+GridStatusRange.lua
+GridStatusReadyCheck.lua
+GridStatusTarget.lua
+GridStatusVehicle.lua
+GridStatusVoiceComm.lua

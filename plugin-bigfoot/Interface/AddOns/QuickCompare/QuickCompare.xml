@@ -1,0 +1,36 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ C:ProjectsWoWBinInterfaceFrameXMLUI.xsd">
+	<Button name="GameTooltipItemButton" hidden="true" parent="GameTooltip">
+		<Size>
+			<AbsDimension x="30" y="30"/>
+		</Size>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentIconTexture"/>
+			</Layer>
+		</Layers>
+		<!-- disable mousing over to eliminate blinking -->
+		<HitRectInsets>
+			<AbsInset left="1" right="1" bottom="1" top="1"/>
+		</HitRectInsets>
+		<Anchors>
+			<Anchor point="TOPRIGHT">
+      			<Offset x="-6" y="-8"/>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(GameTooltip:GetFrameLevel());
+			</OnLoad>			
+		</Scripts>
+	</Button>
+	
+	<GameTooltip name="CompareTooltipTemplate" frameStrata="TOOLTIP" hidden="true" parent="UIParent" inherits="ShoppingTooltipTemplate" virtual="true">		
+		<Scripts>
+			<OnLoad>
+				self:SetBackdropColor(0.0,0.0,0.5);
+			</OnLoad>
+		</Scripts>
+	</GameTooltip>
+	<GameTooltip name="ItemRefCompareTooltip1" parent="ItemRefTooltip" inherits="CompareTooltipTemplate"/>
+	<GameTooltip name="ItemRefCompareTooltip2" parent="ItemRefTooltip" inherits="CompareTooltipTemplate"/>
+</Ui>

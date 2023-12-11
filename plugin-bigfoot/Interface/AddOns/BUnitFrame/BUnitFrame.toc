@@ -1,0 +1,13 @@
+﻿## Interface: 30300
+## Title: [BF] BigFoot Unit Frame
+## Title-zhCN: [KK魔兽]头像增强
+## Title-zhTW: [大腳]頭像增強
+## Notes: |cffbc8f8fProvides extra unit frames.|r
+## Notes-zhCN: |cff00ff00BUnitFrame|r                                             |cffbc8f8f提供一些额外的头像模块，例如焦点头像等。|r
+## Notes-zhTW: |cff00ff00BUnitFrame|r                                             |cffbc8f8f提供一些額外的頭像模組，例如焦點頭像等。|r
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+## SavedVariables: BUnitFrame_Config
+
+BUnitFrame.xml

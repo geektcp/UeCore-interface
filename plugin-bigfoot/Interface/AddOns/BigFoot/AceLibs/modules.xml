@@ -1,0 +1,79 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+<Script file="LibStub\LibStub.lua"/>
+
+<Script file="Ace2\AceLibrary\AceLibrary.lua"/>
+<Script file="Ace2\AceOO-2.0\AceOO-2.0.lua"/>
+<Script file="Ace2\AceEvent-2.0\AceEvent-2.0.lua"/>
+<Script file="Ace2\AceDB-2.0\AceDB-2.0.lua"/>
+<Script file="Ace2\AceDebug-2.0\AceDebug-2.0.lua"/>
+<Script file="Ace2\AceLocale-2.2\AceLocale-2.2.lua"/>
+<Script file="Ace2\AceConsole-2.0\AceConsole-2.0.lua"/>
+<Script file="Ace2\AceAddon-2.0\AceAddon-2.0.lua"/>
+<Script file="Ace2\AceHook-2.1\AceHook-2.1.lua"/>
+<Script file="Ace2\AceModuleCore-2.0\AceModuleCore-2.0.lua"/>
+
+
+<Include file="Ace3\CallbackHandler-1.0\CallbackHandler-1.0.xml"/>
+<Include file="Ace3\AceAddon-3.0\AceAddon-3.0.xml"/>
+<Include file="Ace3\AceEvent-3.0\AceEvent-3.0.xml"/>
+<Include file="Ace3\AceTimer-3.0\AceTimer-3.0.xml"/>
+<Include file="Ace3\AceBucket-3.0\AceBucket-3.0.xml"/>
+<Include file="Ace3\AceHook-3.0\AceHook-3.0.xml"/>
+<Include file="Ace3\AceDB-3.0\AceDB-3.0.xml"/>
+<Include file="Ace3\AceDBOptions-3.0\AceDBOptions-3.0.xml"/>
+<Include file="Ace3\AceLocale-3.0\AceLocale-3.0.xml"/>
+<Include file="Ace3\AceConsole-3.0\AceConsole-3.0.xml"/>
+<Include file="Ace3\AceGUI-3.0\AceGUI-3.0.xml"/>
+<Include file="Ace3\AceConfig-3.0\AceConfig-3.0.xml"/>
+<Include file="Ace3\AceComm-3.0\AceComm-3.0.xml"/>
+<Include file="Ace3\AceTab-3.0\AceTab-3.0.xml"/>
+<Include file="Ace3\AceSerializer-3.0\AceSerializer-3.0.xml"/>
+
+<Script file="Ace3\Ace3.lua"/>
+
+<Include file="LibSink-2.0\lib.xml"/>
+<Script file="Dewdrop-2.0\Dewdrop-2.0.lua"/>
+<Script file="LibBabble-3.0\LibBabble-3.0.lua"/>
+<Include file="LibBabble-Class-3.0\lib.xml"/>
+<Include file="LibBabble-Zone-3.0\lib.xml"/>
+<Include file="LibBabble-Boss-3.0\lib.xml"/>
+<Include file="LibBabble-Inventory-3.0\lib.xml" /> 
+<Include file="LibBabble-Spell-3.0\lib.xml"/>
+
+<Script file="LibDataBroker-1.1\LibDataBroker-1.1.lua"/>
+<Include file="LibInstanceLootData-1.0\lib.xml"/>
+<Script file="LibDBIcon-1.0\LibDBIcon-1.0.lua"/>
+<Script file="Tablet-2.0\Tablet-2.0.lua"/>
+<Script file="Waterfall-1.0\Waterfall-1.0.lua"/>
+<Script file="FuBarPlugin-2.0\FuBarPlugin-2.0.lua"/>
+<Include file="LibBanzai-2.0\lib.xml"/>
+<Include file="LibGratuity-3.0\lib.xml"/>
+<Include file="LibSharedMedia-3.0\lib.xml"/>
+<Script file="Roster-2.1\Roster-2.1.lua"/>
+<Script file="UTF8\utf8data.lua"/>
+<Script file="UTF8\utf8.lua"/>
+<Include file="LibHealComm-4.0\LibHealComm-4.0.xml"/>
+<Script file="CandyBar-2.0\CandyBar-2.0.lua"/>
+<Script file="Window-1.0\Window-1.0.lua"/>
+<Include file="AceGUI-3.0-SharedMediaWidgets\widget.xml"/>
+<Script file="LibGraph-2.0\LibGraph-2.0.lua"/>
+<Include file="LibAboutPanel\lib.xml"/>
+<Include file="LibBossIDs-1.0\lib.xml" /> 
+<Include file="LibQTip-1.0\lib.xml"/>
+<Include file="LibQuixote-2.0\lib.xml"/>
+<Include file="LibStatLogic-1.1\lib.xml" /> 
+<Include file="LibTipHooker-1.1\lib.xml" /> 
+<Script file="LibDualSpec-1.0\LibDualSpec-1.0.lua" /> 
+<Include file="LibTourist-3.0\lib.xml" /> 
+<Include file="LibSimpleFrame-1.0\lib.xml" /> 
+<Include file="LibCrayon-3.0\lib.xml" /> 
+<Script file="LibPeriodicTable-3.1\LibPeriodicTable-3.1.lua" /> 
+<Script file="LibPeriodicTable-3.1-InstanceLoot\LibPeriodicTable-3.1-InstanceLoot.lua" /> 
+<Script file="LibPeriodicTable-3.1-InstanceLootHeroic\LibPeriodicTable-3.1-InstanceLootHeroic.lua" /> 
+<Script file="LibFail-1.0\LibFail-1.0.lua" /> 
+<Script file="LibWindow-1.1\LibWindow-1.1.lua" /> 
+<Script file="LibTalentQuery-1.0\LibTalentQuery-1.0.lua" /> 
+<Script file="LibGroupTalents-1.0\LibGroupTalents-1.0.lua" /> 
+<Script file="LibMapData-1.0\library.lua" /> 
+</Ui>

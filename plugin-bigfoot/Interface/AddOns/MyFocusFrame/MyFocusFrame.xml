@@ -1,0 +1,643 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="MyFocusFrame.lua"/>
+	<Button name="MyFocusDebuffButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="17" y="17"/>
+		</Size>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" setAllPoints="true"/>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentBorder" file="Interface\Buttons\UI-Debuff-Overlays">
+					<Size>
+						<AbsDimension x="17" y="17"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.296875" right="0.5703125" top="0" bottom="0.515625"/>
+				</Texture>	
+				<FontString name="$parentCount" inherits="NumberFontNormalSmall">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="-1" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Cooldown name="$parentCooldown" inherits="CooldownFrameTemplate" reverse="true" hidden="true">
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="-1"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Cooldown>
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				if ( GameTooltip:IsOwned(self) ) then
+					GameTooltip:SetUnitDebuff("focus", self.id);
+				end
+			</OnUpdate>
+			<OnEnter>
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT", 15, -25);
+				GameTooltip:SetUnitDebuff("focus", self.id);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Button name="MyFocusBuffButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="21" y="21"/>
+		</Size>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" setAllPoints="true"/>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString name="$parentCount" inherits="NumberFontNormalSmall">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="2" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Cooldown name="$parentCooldown" inherits="CooldownFrameTemplate" reverse="true">
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="-1"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Cooldown>
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				if ( GameTooltip:IsOwned(self) ) then
+					GameTooltip:SetUnitBuff("focus", self.id);
+				end
+			</OnUpdate>
+			<OnEnter>
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT", 15, -25);
+				GameTooltip:SetUnitBuff("focus", self.id);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Button name="MyFocusFrame" frameStrata="LOW" toplevel="true" movable="true" inherits="SecureUnitButtonTemplate" parent="UIParent" clampedToScreen="true">
+		<Size>
+			<AbsDimension x="232" y="100"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<HitRectInsets>
+			<AbsInset left="96" right="6" top="4" bottom="9"/>
+		</HitRectInsets>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="MyFocusFrameBackground">
+					<Size>
+						<AbsDimension x="119" y="41"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPRIGHT">
+							<Offset>
+								<AbsDimension x="-106" y="-22"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.5"/>
+				</Texture>
+				<Texture name="MyFocusFrameNameBackground" file="Interface\TargetingFrame\UI-TargetingFrame-LevelBackground">
+					<Size>
+						<AbsDimension x="119" y="19"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPRIGHT">
+							<Offset>
+								<AbsDimension x="-106" y="-22"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="MyFocusPortrait">
+					<Size>
+						<AbsDimension x="64" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPRIGHT">
+							<Offset>
+								<AbsDimension x="-42" y="-12"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="MyFocusFrameTitle">
+				<Size>
+					<AbsDimension x="71" y="16"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="67" y="-20"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="MyFocusFrameTitleLeft" file="Interface\CharacterFrame\UI-CharacterFrame-GroupIndicator">
+							<Size>
+								<AbsDimension x="24" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT"/>
+							</Anchors>
+							<TexCoords left="0" right="0.1875" top="0" bottom="1"/>
+						</Texture>
+						<Texture name="MyFocusFrameTitleRight" file="Interface\CharacterFrame\UI-CharacterFrame-GroupIndicator">
+							<Size>
+								<AbsDimension x="24" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT"/>
+							</Anchors>
+							<TexCoords left="0.53125" right="0.71875" top="0" bottom="1"/>
+						</Texture>
+						<Texture name="MyFocusFrameTitleMiddle" file="Interface\CharacterFrame\UI-CharacterFrame-GroupIndicator">
+							<Size>
+								<AbsDimension x="0" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="MyFocusFrameTitleLeft" relativePoint="RIGHT"/>
+								<Anchor point="RIGHT" relativeTo="MyFocusFrameTitleRight" relativePoint="LEFT"/>
+							</Anchors>
+							<TexCoords left="0.1875" right="0.53125" top="0" bottom="1"/>
+						</Texture>
+						<FontString name="MyFocusFrameTitleText" inherits="GameFontHighlightSmall" text="MYFOCUSFRAME_TITLE">
+							<Size>
+								<AbsDimension x="48" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT">
+									<Offset>
+										<AbsDimension x="20" y="-2"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						MyFocusFrameTitleLeft:SetAlpha(0.3);
+						MyFocusFrameTitleRight:SetAlpha(0.3);
+						MyFocusFrameTitleMiddle:SetAlpha(0.3);
+						MyFocusFrameTitleText:SetAlpha(0.7);
+						self:SetWidth(MyFocusFrameTitleText:GetWidth()+40);
+						self:RegisterForDrag("LeftButton");
+						self:RegisterForClicks("AnyUp");
+					</OnLoad>
+					<OnDragStart>
+						MyFocusFrame_OnDragStart(self);
+					</OnDragStart>
+					<OnDragStop>
+						MyFocusFrame_OnDragStop(self);
+					</OnDragStop>
+					<OnEnter>
+						MyFocusFrame_OnEnter(self);
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide(self);
+					</OnLeave>
+					
+				</Scripts>
+
+			</Button>
+			<Frame name="MyFocusFrameTextureFrame" setAllPoints="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="MyFocusFrameTexture" file="Interface\TargetingFrame\UI-TargetingFrame">
+							<TexCoords left="0.09375" right="1.0" top="0" bottom="0.78125"/>
+						</Texture>
+						<FontString name="MyFocusName" inherits="GameFontNormalSmall">
+							<Size>
+								<AbsDimension x="100" y="10"/>
+							</Size>
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="-50" y="19"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="MyFocusLevelText" inherits="GameFontNormalSmall">
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="63" y="-16"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="MyFocusDeadText" inherits="GameFontNormalSmall" text="DEAD">
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="-50" y="3"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="MyFocusFrameHealthBarText" inherits="TextStatusBarText">
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="-50" y="3"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="MyFocusFrameManaBarText" inherits="TextStatusBarText">
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="-50" y="-8"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+					<Layer level="ARTWORK">
+						<Texture name="MyFocusHighLevelTexture" file="Interface\TargetingFrame\UI-TargetingFrame-Skull">
+							<Size>
+								<AbsDimension x="16" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="63" y="-16"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="MyFocusLeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+							<Size>
+								<AbsDimension x="16" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="-44" y="-10"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="MyFocusPVPIcon" hidden="true">
+							<Size>
+								<AbsDimension x="64" y="64"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="3" y="-20"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="MyFocusRaidTargetIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+							<Size>
+								<AbsDimension x="26" y="26"/>
+							</Size>
+							<Anchors>
+								<Anchor point="CENTER" relativePoint="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="-73" y="-14"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="MyFocusFrameDropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+				<Size>
+					<AbsDimension x="10" y="10"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="10" y="-60"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						MyFocusFrameDropDown_OnLoad(self);
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<StatusBar name="MyFocusFrameHealthBar" inherits="TextStatusBar">
+				<Size>
+					<AbsDimension x="119" y="12"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-106" y="-41"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						TextStatusBar_Initialize(self);
+						self.textLockable = 1;
+						self.cvar = "targetStatusText";
+						self.cvarLabel = "STATUS_TEXT_TARGET";
+						self.zeroText = "";
+					</OnLoad>
+					<OnValueChanged>
+						MyFocusFrameHealthBar_OnValueChanged(self, value);
+						FocusHealthCheck(self);
+					</OnValueChanged>
+				</Scripts>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+			</StatusBar>
+			<StatusBar name="MyFocusFrameManaBar" inherits="TextStatusBar">
+				<Size>
+					<AbsDimension x="119" y="12"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-106" y="-52"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						TextStatusBar_Initialize(self);
+						self.textLockable = 1;
+						self.cvar = "targetStatusText";
+						self.cvarLabel = "STATUS_TEXT_TARGET";
+					</OnLoad>
+				</Scripts>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="0" b="1.0"/>
+			</StatusBar>
+			<StatusBar name="MyFocusFrameSpellBar" inherits="CastingBarFrameTemplate" hidden="true">
+				<Size>
+					<AbsDimension x="150" y="10"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOM">
+						<Offset>
+							<AbsDimension x="-15" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnShow>
+						MyFocus_Spellbar_AdjustPosition();
+					</OnShow>
+					<OnLoad>
+						MyFocus_Spellbar_OnLoad(self);
+					</OnLoad>
+					<OnEvent>
+						MyFocus_Spellbar_OnEvent(self, event, ...);
+					</OnEvent>
+				</Scripts>
+			</StatusBar>
+			<Frame name="MyFocusFrameBuffs" hidden="true">
+				<Size>
+					<AbsDimension x="10" y="10"/>
+				</Size>
+			</Frame>
+			<Frame name="MyFocusFrameDebuffs" hidden="true">
+				<Size>
+					<AbsDimension x="10" y="10"/>
+				</Size>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+  				UnitFrame_Initialize(self, "focus", MyFocusName, MyFocusPortrait,
+								 MyFocusFrameHealthBar, MyFocusFrameHealthBarText,
+								 MyFocusFrameManaBar, MyFocusFrameManaBarText);
+				self.noTextPrefix = true;
+				MyFocusFrame_OnLoad(self);
+				RegisterForSaveFrame(self);
+			</OnLoad>
+			<OnEvent>
+				MyFocusFrame_OnEvent(self, event, ...);
+			</OnEvent>
+			<OnUpdate>
+				MyFocusFrame_OnUpdate(self, elapsed);
+				MyFocusFrame_HealthUpdate(self, elapsed, "focus");
+			</OnUpdate>
+			<OnHide>
+				MyFocusFrame_OnHide(self);
+			</OnHide>
+			<OnEnter>
+				UnitFrame_OnEnter(self);
+			</OnEnter>
+			<OnLeave>
+				UnitFrame_OnLeave(self);
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Button name="MyTargetofFocusFrame" toplevel="true" movable="true" inherits="SecureUnitButtonTemplate" parent="MyFocusFrame" hidden="false">
+		<Size>
+			<AbsDimension x="93" y="45"/>
+		</Size>
+		<Anchors>
+			<Anchor point="BOTTOMRIGHT">
+				<Offset>
+					<AbsDimension x="-35" y="-10"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="MyTargetofFocusBackground">
+					<Size>
+						<AbsDimension x="46" y="15"/>
+					</Size>
+					<Anchors>
+						<Anchor point="BOTTOMLEFT">	
+							<Offset>
+								<AbsDimension x="42" y="13"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.5"/>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="MyTargetofFocusPortrait">
+					<Size>
+						<AbsDimension x="35" y="35"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="6" y="-6"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="MyTargetofFocusTextureFrame" setAllPoints="true">
+				<Layers>
+					<Layer level="BORDER">
+						<Texture name="MyTargetofFocusTexture" file="Interface\TargetingFrame\UI-TargetofTargetFrame">
+							<TexCoords left="0.015625" right="0.7265625" top="0" bottom="0.703125"/>
+						</Texture>
+						<FontString name="MyTargetofFocusName" inherits="GameFontNormalSmall" justifyH="LEFT">
+							<Size>
+								<AbsDimension x="100" y="10"/>
+							</Size>
+							<Anchors>
+								<Anchor point="BOTTOMLEFT">
+									<Offset>
+										<AbsDimension x="42" y="2"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="MyTargetofFocusDeadText" inherits="GameFontNormalSmall" text="DEAD">
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="15" y="1"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						RaiseFrameLevel(self);
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<StatusBar name="MyTargetofFocusHealthBar" inherits="TextStatusBar">
+				<Size>
+					<AbsDimension x="46" y="7"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-2" y="-15"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnValueChanged>
+						TargetofFocusHealthCheck(self, value);
+					</OnValueChanged>
+				</Scripts>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="1.0" b="0"/>
+			</StatusBar>
+			<StatusBar name="MyTargetofFocusManaBar" inherits="TextStatusBar">
+				<Size>
+					<AbsDimension x="46" y="7"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-2" y="-23"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="0" b="1.0"/>
+			</StatusBar>
+			<Frame name="$parentDebuff1" inherits="TargetofTargetBuffButtonTemplate" id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="4" y="-10"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentDebuff2" inherits="TargetofTargetBuffButtonTemplate" id="2">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentDebuff1" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="1" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentDebuff3" inherits="TargetofTargetBuffButtonTemplate" id="3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentDebuff1" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-1"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentDebuff4" inherits="TargetofTargetBuffButtonTemplate" id="4">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentDebuff3" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="1" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				MyTargetofFocus_OnLoad(self);
+			</OnLoad>
+			<OnShow>
+				MyFocusDebuffButton_Update();
+			</OnShow>
+			<OnHide>
+				MyTargetofFocus_OnHide(self);
+			</OnHide>
+			<OnEvent>
+				UnitFrame_OnEvent(self, event, ...);
+			</OnEvent>
+			<OnUpdate>
+				MyTargetofFocus_Update(self);
+			</OnUpdate>
+		</Scripts>
+	</Button>
+</Ui>
