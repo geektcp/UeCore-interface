@@ -1,0 +1,19 @@
+# uewow-interface
+===================================
+
+有益魔兽世界插件
+
+https://uewow.com
+
+
+大脚插件：
+进入目录plugin-bigfoot，将里面的interface文件夹替换当前客户端的interface文件夹即可。
+
+elvui插件：
+进入目录plugin-elvui，将里面的interface文件夹替换当前客户端的interface文件夹即可。
+
+# 安装教程
+
+直接将巫妖之怒客户端目录下Interface文件夹删除，然后将当前工程下的Interface目录直接复制过去。
+
+双击Wow.exe启动游戏客户端。
